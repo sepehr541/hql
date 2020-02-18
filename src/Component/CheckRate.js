@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import "./Checkrate.css"
 
 class CheckRate extends Component {
     // constructor(props) {
@@ -26,7 +27,7 @@ class CheckRate extends Component {
             <Fragment>
                     <div className="CheckRate">
                         <form onSubmit={this.handleSubmit}>
-                            <input type="text" value={this.state.value} onChange={this.handleChange} />
+                            <input type="text" placeholder  />
                             <button onClick={this.handleSubmit}>Check</button>
                         </form>
                     </div>
