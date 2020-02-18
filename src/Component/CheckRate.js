@@ -26,6 +26,7 @@ class CheckRate extends Component {
     render() {
             
         return (
+<<<<<<< HEAD
             <Fragment>
                     <div className="CheckRate">
                         <ul>

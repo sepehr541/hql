@@ -15,7 +15,9 @@ const Nav=(props)=>{
          <NavLink to="/about">About Us</NavLink>
         <button onClick={()=>checkratehandler()}> Check your rate </button>
          </header>
+         <div>
          {rate ? <Checkrate />:null}
+         </div>
         </Fragment>
     )
 }
