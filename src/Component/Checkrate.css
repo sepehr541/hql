@@ -1,13 +1,4 @@
-.CheckRate{
+input{
     display: inline;
-    
 }
 
-.box{
-    width: 40px;
-    height: 20px;
-    float: left;
-    margin: 5px ;
-    
-    
-}

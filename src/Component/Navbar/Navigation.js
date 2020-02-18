@@ -13,7 +13,9 @@ const Nav=(props)=>{
          <header className="Nav">
         <button onClick={()=>checkratehandler()}> Check your rate </button>
          </header>
+         <div>
          {rate ? <Checkrate />:null}
+         </div>
         </Fragment>
 
 

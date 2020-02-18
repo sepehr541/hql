@@ -24,18 +24,10 @@ class CheckRate extends Component {
     render() {
             
         return (
-            <Fragment>
-                    <div className="CheckRate">
-                        <ul>
-                            <div>
-                            <input className="box" type="text" placeholder="Number of Adults"/>
-                            <input className="box" type="text" placeholder="Check-in and Check-out"/>
-                            </div>
-                        
-                            <button onClick={this.handleSubmit}>Check</button>
-                        </ul>
-                    </div>
-                </Fragment>
+            <Fragment >
+                <input type="text" placeholder="First name"/>
+                <input style={{marginTop:"100px"}} id="adult" placeholder="Adults"/>
+             </Fragment>
         )
     }
 }
