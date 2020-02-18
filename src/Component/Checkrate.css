@@ -1,3 +1,13 @@
 .CheckRate{
-    margin-top: 100px;
+    display: inline;
+    
+}
+
+.box{
+    width: 40px;
+    height: 20px;
+    float: left;
+    margin: 5px ;
+    
+    
 }

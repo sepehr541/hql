@@ -26,10 +26,14 @@ class CheckRate extends Component {
         return (
             <Fragment>
                     <div className="CheckRate">
-                        <form onSubmit={this.handleSubmit}>
-                            <input type="text" placeholder  />
+                        <ul>
+                            <div>
+                            <input className="box" type="text" placeholder="Number of Adults"/>
+                            <input className="box" type="text" placeholder="Check-in and Check-out"/>
+                            </div>
+                        
                             <button onClick={this.handleSubmit}>Check</button>
-                        </form>
+                        </ul>
                     </div>
                 </Fragment>
         )
