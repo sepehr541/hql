@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import Home from "./Component/Home"
+import Nav from "./Component/Navbar/Navigation"
+
 
 
 function App() {
   return (
-    <div >fddasdas</div>
+    <Fragment>
+    <Nav/>
+    <Home/>
+    </Fragment>
+    
   );
 }
 

@@ -1,8 +1,11 @@
 import React from "react"
-import "Nav.css"
+import "./Nav.css"
 
 const Nav=(props)=>{
-    <div className="Nav"></div>
+    return(
+            <div className="Nav"></div>
+
+    )
 }
 
 export default Nav;
