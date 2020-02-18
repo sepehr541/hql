@@ -36,6 +36,9 @@
     ]
   },
   "devDependencies": {
-    "react-daterange-picker": "^2.0.1"
+    "moment": "^2.24.0",
+    "moment-range": "^3.1.1",
+    "react-daterange-picker": "^2.0.1",
+    "typescript": "^3.7.5"
   }
 }
