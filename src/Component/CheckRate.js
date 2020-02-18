@@ -8,7 +8,7 @@ class CheckRate extends Component {
     // }
 
     state = {
-        value: '',
+        dates: null,
     }
 
     handleChange = (event) => {
@@ -22,17 +22,20 @@ class CheckRate extends Component {
 
     }
     
+    onSelect = (dates) => {
+        console.log(dates);
+    }
+
 
     render() {
             
         return (
-<<<<<<< HEAD
             <Fragment>
                     <div className="CheckRate">
                         <ul>
                             <div>
                             <input className="box" type="text" placeholder="Number of Adults"/>
-                            <DateRangePicker onClick={} />
+                            <DateRangePicker onSelect={this.onSelect} value={this.state.dates}/>
                             </div>
                         
                             <button onClick={this.handleSubmit}>Check</button>
