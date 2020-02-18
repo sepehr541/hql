@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import "./Checkrate.css"
-import  DateRangePicker from "react-daterange-picker"
-
+import DateRangePicker from 'react-daterange-picker'
+import 'react-daterange-picker/dist/css/react-calendar.css'
 class CheckRate extends Component {
     // constructor(props) {
     //     super(props);
     // }
+
+  
 
     state = {
         value: '',
@@ -21,21 +23,24 @@ class CheckRate extends Component {
         event.preventDefault();
 
     }
+    
 
     render() {
             
         return (
-            <Fragment >
-            <form>
-  <div class="row">
-    <div class="col">
-      <input style={{marginTop:"100px"}} type="text" class="form-control" placeholder="Check-in and Check-out"/>
-      <DateRangePicker/>
-    </div>
-  
-  </div>
-</form>
-             </Fragment>
+
+            <Fragment>
+                    <div className="CheckRate">
+                        <ul>
+                            <div>
+                            <input className="box" type="text" placeholder="Number of Adults"/>
+                            <DateRangePicker />
+                            </div>
+                        
+                            <button onClick={this.handleSubmit}>Check</button>
+                        </ul>
+                    </div>
+                </Fragment>
         )
     }
 }
