@@ -21,20 +21,18 @@ class CheckRate extends Component {
     }
 
     render() {
-        let showing = null
-        if (this.props.show) {
-            showing =
-                (<Fragment>
+            
+        return (
+            <Fragment>
                     <div className="CheckRate">
                         <form onSubmit={this.handleSubmit}>
                             <input type="text" value={this.state.value} onChange={this.handleChange} />
                             <button onClick={this.handleSubmit}>Check</button>
                         </form>
                     </div>
-                </Fragment>)
-        }
-        return (
-            { showing }
+                </Fragment>
         )
     }
 }
+
+export default CheckRate

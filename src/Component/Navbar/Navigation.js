@@ -1,20 +1,18 @@
 import React, {useState } from "react"
 import "./Nav.css"
+import Checkrate from "../CheckRate"
 
 
 const Nav=(props)=>{
-    const [rate,setrate]=useState
+    const [rate,setrate]=useState(false)
     let checkratehandler=()=>{
-
+        setrate(!rate)
     }
     return(
          <header className="Nav">
-         <div className="menu" onClick={props.toggle}>
-         <div className="bar1"></div>
-         <div className="bar2"></div>
-         <div className="bar3"></div>
-         <button onClick={}> Check your rate </button>
-         </div>
+        
+         <button onClick={()=>checkratehandler()}> Check your rate </button>
+         {rate ? <Checkrate />:null}
          </header>
 
 
