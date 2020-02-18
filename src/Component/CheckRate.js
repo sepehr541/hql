@@ -1,6 +1,10 @@
-import React, {Component} from 'react'
+import React, { Component, Fragment } from 'react'
 
 class CheckRate extends Component {
+    // constructor(props) {
+    //     super(props);
+    // }
+
     state = {
         value: '',
     }
@@ -16,15 +20,21 @@ class CheckRate extends Component {
 
     }
 
-
     render() {
+        let showing = null
+        if (this.props.show) {
+            showing =
+                (<Fragment>
+                    <div className="CheckRate">
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" value={this.state.value} onChange={this.handleChange} />
+                            <button onClick={this.handleSubmit}>Check</button>
+                        </form>
+                    </div>
+                </Fragment>)
+        }
         return (
-            <div className="CheckRate">
-            <form onSubmit={this.handleSubmit}>
-            <input type="text" value={this.state.value} onChange={this.handleChange}/>
-            <button onClick ={this.handleSubmit}>Check</button>
-            </form>
-            </div>
+            { showing }
         )
     }
 }
