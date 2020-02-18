@@ -25,8 +25,16 @@ class CheckRate extends Component {
             
         return (
             <Fragment >
-                <input type="text" placeholder="First name"/>
-                <input style={{marginTop:"100px"}} id="adult" placeholder="Adults"/>
+            <form>
+  <div class="row">
+    <div class="col">
+      <input style={{marginTop:"100px"}} type="text" class="form-control" placeholder="First name"/>
+    </div>
+    <div class="col">
+      <input style={{marginTop:"100px"}} type="text" class="form-control" placeholder="Last name"/>
+    </div>
+  </div>
+</form>
              </Fragment>
         )
     }
