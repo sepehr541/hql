@@ -34,7 +34,7 @@ class CheckRate extends Component {
 
             <Fragment>
                     <div >
-                        <form className="check">
+                        <form className="check" onSubmit={this.handleSubmit}>
                             <input name="number" id="nums"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults" />
                         </form>
                         <form className="check2">
