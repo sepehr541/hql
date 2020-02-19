@@ -2,16 +2,15 @@ import React, { Component, Fragment } from 'react'
 import "./Checkrate.css"
 import DateRangePicker from 'react-daterange-picker'
 import 'react-daterange-picker/dist/css/react-calendar.css'
+import {connect} from "react-redux"
+import reducer1 from "../Reducers/reducer1"
+import {gettingdate} from "../Actions/action"
 class CheckRate extends Component {
     // constructor(props) {
     //     super(props);
     // }
 
   
-
-    state = {
-        dates: null,
-    }
 
     handleChange = (event) => {
         this.setState({
@@ -26,6 +25,7 @@ class CheckRate extends Component {
     
     onSelect = (dates) => {
         console.log(dates);
+
     }
 
 
@@ -38,7 +38,7 @@ class CheckRate extends Component {
                         <ul>
                             <div>
                             <input className="box" type="text" placeholder="Number of Adults"/>
-                            <DateRangePicker onSelect={this.onSelect} value={this.state.dates}/>
+                            <DateRangePicker onSelect={this.onSelect} />
                             </div>
                         
                             <button onClick={this.handleSubmit}>Check</button>
@@ -49,4 +49,10 @@ class CheckRate extends Component {
     }
 }
 
-export default CheckRate
+const maptoprops=dispatch=>{
+    return{
+        recieve_dates:(start,end)=>dispatch(gettingdate(start,end))
+    }
+}
+
+export default  (CheckRate);
