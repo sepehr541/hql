@@ -48,7 +48,7 @@ class CheckRate extends Component {
                                 <input name="number" id="nums"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults" />
                             </form>
                             <form className="check2">
-                            <input name="date" type="text" placeholder="Check-in and check-out"  value={this.props.cehckin}></input>
+                            <input name="date" type="text" placeholder="Check-in and check-out"  value={this.props.checkin}></input>
     
                             </form>
     
@@ -67,7 +67,8 @@ class CheckRate extends Component {
 
 const maptostate=state=>{
     return{
-        cehckin:state.dates.check_in
+        checkin:state.dates.check_in
+
     }
 }
 const maptoprops=dispatch=>{
