@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react'
+import {connect} from "react-redux"
 
 class Reservation extends Component {
 
@@ -17,5 +18,11 @@ class Reservation extends Component {
         )
     }
 }
+const maptostate=state=>{
+    return{
+        check_in:state.dates.check_in,
+        check_out:state.dates.check_out
+    }
+}
 
-export default Reservation
+export default connect(maptostate) (Reservation);
