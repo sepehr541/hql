@@ -45,7 +45,7 @@ class CheckRate extends Component {
                         <ul>
                             <li><input name="number" id="nums" type="text" placeholder="Number of Adults" /></li>
                             <li id="date-field"><input name="date" type="text" placeholder="Check-in and check-out" value={this.props.checkin}></input></li>
-                            <li id="date-picker"><DateRangePicker onSelect={this.onSelect} /></li>
+                           {this.props.checkin ? null: <li id="date-picker"><DateRangePicker onSelect={this.onSelect} /></li>}
                             <li><button onClick={this.handleSubmit}>Check</button></li>
                         </ul>
                         </form>
