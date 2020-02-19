@@ -1,8 +1,9 @@
-export const gettingdate=(start,end)=>{
+export const gettingdate=(start,end,number)=>{
     return{
         type:"dates",
         start:start,
-        end:end
+        end:end,
+        people:number
 
     }
 }

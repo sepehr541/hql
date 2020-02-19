@@ -4,6 +4,7 @@ import DateRangePicker from 'react-daterange-picker'
 import 'react-daterange-picker/dist/css/react-calendar.css'
 import {connect} from "react-redux"
 import {gettingdate} from "../Actions/action"
+import { withRouter } from 'react-router-dom'
 class CheckRate extends Component {
 
     handleChange = (event) => {
@@ -19,9 +20,12 @@ class CheckRate extends Component {
     
     onSelect = (dates) => {
         console.log(dates);
-        this.props.send_dates(dates.start._d,dates.end._d)
+        let nums=document.getElementById("nums").value
+        this.props.send_dates(dates.start._d,dates.end._d,nums)
 
     }
+
+    
 
 
     render() {
@@ -31,10 +35,10 @@ class CheckRate extends Component {
             <Fragment>
                     <div >
                         <form className="check">
-                            <input name="number"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults"/>
+                            <input name="number" id="nums"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults" />
                         </form>
                         <form className="check2">
-                        <input name="date" type="text" placeholder="Check-in and check-out"/>
+                        <input name="date" type="text" placeholder="Check-in and check-out"  value={this.props.cehckin}></input>
 
                         </form>
 
@@ -47,10 +51,16 @@ class CheckRate extends Component {
     }
 }
 
+const maptostate=state=>{
+    return{
+        cehckin:state.dates.check_in
+    }
+}
 const maptoprops=dispatch=>{
     return{
-        send_dates:(start,end)=>dispatch(gettingdate(start,end))
+        send_dates:(start,end,people)=>dispatch(gettingdate(start,end,people))
     }
 }
 
-export default connect(null,maptoprops) (CheckRate);
+
+export default connect(maptostate,maptoprops) (withRouter(CheckRate));
