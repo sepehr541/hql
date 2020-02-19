@@ -8,7 +8,7 @@ class CheckRate extends Component {
     // }
 
     state = {
-        dates: null,
+        dates: moment(),
     }
 
     handleChange = (event) => {
