@@ -8,7 +8,8 @@ const reducer=(state=initialstate,action)=>{
     if(action.type==="dates"){
         return{
             ...state,
-            
+            check_in:action.start,
+            check_out:action.end
         }
 
     }
@@ -18,3 +19,5 @@ const reducer=(state=initialstate,action)=>{
 
     return state
 }
+
+export default reducer

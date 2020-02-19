@@ -3,7 +3,6 @@ import "./Checkrate.css"
 import DateRangePicker from 'react-daterange-picker'
 import 'react-daterange-picker/dist/css/react-calendar.css'
 import {connect} from "react-redux"
-import reducer1 from "../Reducers/reducer1"
 import {gettingdate} from "../Actions/action"
 class CheckRate extends Component {
     // constructor(props) {
@@ -25,6 +24,7 @@ class CheckRate extends Component {
     
     onSelect = (dates) => {
         console.log(dates);
+        this.props.send_dates(dates.start._d,dates.end._d)
 
     }
 
@@ -51,8 +51,8 @@ class CheckRate extends Component {
 
 const maptoprops=dispatch=>{
     return{
-        recieve_dates:(start,end)=>dispatch(gettingdate(start,end))
+        send_dates:(start,end)=>dispatch(gettingdate(start,end))
     }
 }
 
-export default  (CheckRate);
+export default connect(null,maptoprops) (CheckRate);
