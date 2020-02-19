@@ -5,11 +5,6 @@ import 'react-daterange-picker/dist/css/react-calendar.css'
 import {connect} from "react-redux"
 import {gettingdate} from "../Actions/action"
 class CheckRate extends Component {
-    // constructor(props) {
-    //     super(props);
-    // }
-
-  
 
     handleChange = (event) => {
         this.setState({
@@ -30,19 +25,22 @@ class CheckRate extends Component {
 
 
     render() {
-            
+
         return (
 
             <Fragment>
-                    <div className="CheckRate">
-                        <ul>
-                            <div>
-                            <input className="box" type="text" placeholder="Number of Adults"/>
+                    <div >
+                        <form className="check">
+                            <input name="number"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults"/>
+                        </form>
+                        <form className="check2">
+                        <input name="date" type="text" placeholder="Check-in and check-out"/>
+
+                        </form>
+
                             <DateRangePicker onSelect={this.onSelect} />
-                            </div>
-                        
+
                             <button onClick={this.handleSubmit}>Check</button>
-                        </ul>
                     </div>
                 </Fragment>
         )
