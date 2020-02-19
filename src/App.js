@@ -12,18 +12,15 @@ function App() {
     <BrowserRouter>
       <Fragment>
         <Nav />
+        <Route exact path="/" component={Home}/>
         <Switch>
-
-          <Route exact path="/">
-            <Home />
-          </Route>
+        
           <Route path="/about">
             <About />
           </Route>
 
-          <Route path="/resv">
-            <Reservation />
-          </Route>
+          <Route path="/resv" component={Reservation}/>
+            
 
         </Switch>
       </Fragment>

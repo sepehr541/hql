@@ -7,6 +7,10 @@ import {gettingdate} from "../Actions/action"
 import { withRouter } from 'react-router-dom'
 class CheckRate extends Component {
 
+    state={
+        visible:true
+    }
+
     handleChange = (event) => {
         this.setState({
             value: event.target.value,
@@ -15,6 +19,12 @@ class CheckRate extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
+        this.setState(prev=>({
+            visible:!prev.visible
+        })
+         
+        )
+        this.props.history.push("/resv")
 
     }
     
@@ -29,24 +39,28 @@ class CheckRate extends Component {
 
 
     render() {
+        let show=null
+        if(this.state.visible){
+            show=(
+                <Fragment>
+                        <div >
+                            <form className="check" onSubmit={this.handleSubmit}>
+                                <input name="number" id="nums"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults" />
+                            </form>
+                            <form className="check2">
+                            <input name="date" type="text" placeholder="Check-in and check-out"  value={this.props.cehckin}></input>
+    
+                            </form>
+    
+                                <DateRangePicker onSelect={this.onSelect} />
+    
+                                <button onClick={this.handleSubmit}>Check</button>
+                        </div>
+                    </Fragment>)
+        }
 
         return (
-
-            <Fragment>
-                    <div >
-                        <form className="check" onSubmit={this.handleSubmit}>
-                            <input name="number" id="nums"   style={{marginTop:"50px"}}  type="text" placeholder="Number of Adults" />
-                        </form>
-                        <form className="check2">
-                        <input name="date" type="text" placeholder="Check-in and check-out"  value={this.props.cehckin}></input>
-
-                        </form>
-
-                            <DateRangePicker onSelect={this.onSelect} />
-
-                            <button onClick={this.handleSubmit}>Check</button>
-                    </div>
-                </Fragment>
+            show
         )
     }
 }
