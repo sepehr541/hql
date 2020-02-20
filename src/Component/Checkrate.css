@@ -3,6 +3,7 @@
 }
 
 .check li{
+    position: relative;
     display: inline-block;
     padding: 1em;
     position: relative;

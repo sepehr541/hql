@@ -34,17 +34,9 @@ class CheckRate extends Component {
         console.log(dates);
         let nums = document.getElementById("nums").value
         this.props.send_dates(dates.start._d, dates.end._d, nums)
-        this.setState(prev=>({
-            calendar:!prev.calendar
-        }))
-       
+
     }
-    calendarhandler=()=>{
-        this.setState(prev=>({
-            calendar:!prev.calendar
-        }))
-    }
-    
+
     render() {
         let show = null
         if (this.state.visible) {
