@@ -5,19 +5,10 @@ import 'react-daterange-picker/dist/css/react-calendar.css'
 import { connect } from "react-redux"
 import { gettingdate } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
-<<<<<<< HEAD
-
-class CheckRate extends Component {
-
-    state = {
-        visible: true,
-        calendar:false,
-=======
 class CheckRate extends Component {
 
     state = {
         visible: true
->>>>>>> parent of 7bb4438... Backdrop
     }
 
     handleChange = (event) => {
