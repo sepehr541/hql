@@ -5,8 +5,6 @@ import Nav from "./Component/Navbar/Navigation"
 import Reservation from "./Component/Reservation"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 
-
-
 function App() {
   return (
     <BrowserRouter>

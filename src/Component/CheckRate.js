@@ -1,17 +1,24 @@
 import React, { Component, Fragment } from 'react'
 import "./Checkrate.css"
-import DateRangePicker from 'react-daterange-picker'
-import 'react-daterange-picker/dist/css/react-calendar.css'
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 import { connect } from "react-redux"
 import { gettingdate } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
-import Back from "./Backdrop"
-class CheckRate extends Component {
+import 'react-dates/initialize'
 
-    state = {
-        visible: true,
-        calendar:true
+
+class CheckRate extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            startDate: null,
+            endDate: null,
+            focusedInput: null,
+            visible: true,
+        };
     }
+
 
     handleChange = (event) => {
         this.setState({
@@ -26,48 +33,45 @@ class CheckRate extends Component {
         })
 
         )
-        this.props.history.push("/resv")
+        //this.props.history.push("/resv")
 
     }
 
-    onSelect = (dates) => {
-        console.log(dates);
-        let nums = document.getElementById("nums").value
-        this.props.send_dates(dates.start._d, dates.end._d, nums)
+    // onSelect = (dates) => {
+    //     console.log(dates);
+    //     let nums = document.getElementById("nums").value
+    //     this.props.send_dates(dates.start._d, dates.end._d, nums)
 
-    }
+    // }
 
-    componentDidMount() {
-        const dateField = document.getElementById("date-field");
-        const datePicker = document.getElementById("date-picker");
-        console.log(dateField);
-        dateField.addEventListener('focus', (event)=>{
-            datePicker.style.display = "inline-block";
-        })
 
-        datePicker.addEventListener('blur', (event)=>{
-            event.target.style.display= "none";
-        })
-    }
 
     render() {
         let show = null
         if (this.state.visible) {
             show = (
                 <Fragment>
-                    <Back show={this.state.calendar} click={this.calendarhandler}/>
                     <div >
                         <form className="check" onSubmit={this.handleSubmit}>
-                        <ul>
-                            <li><input name="number" id="nums" type="text" placeholder="Number of Adults" /></li>
-                            <li id="date-field"><input name="date" onClick={this.calendarhandler} type="text" placeholder="Check-in and check-out" value={this.props.checkin}></input></li>
-                           {this.state.calendar ?  <li  id="date-picker"><DateRangePicker onSelect={this.onSelect} /></li>:null}
-                           {this.props.showCheck ? <li><button onClick={this.handleSubmit}>Check</button></li>:null}
-                        </ul>
+                            <ul>
+                                <li><input name="number" id="nums" type="text" placeholder="Number of Adults" /></li>
+                                <li id="date-picker">
+                                    <DateRangePicker
+                                        startDateId="startDate"
+                                        endDateId="endDate"
+                                        startDate={this.state.startDate}
+                                        endDate={this.state.endDate}
+                                        onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }) }}
+                                        focusedInput={this.state.focusedInput}
+                                        onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
+                                    />
+                                </li>
+                                <li><button onClick={this.handleSubmit}>Check</button></li>
+                            </ul>
                         </form>
                     </div>
                 </Fragment>
-                )
+            )
         }
 
         return (
