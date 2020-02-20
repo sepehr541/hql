@@ -5,10 +5,12 @@ import 'react-daterange-picker/dist/css/react-calendar.css'
 import { connect } from "react-redux"
 import { gettingdate } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
+import Back from "./Backdrop"
 class CheckRate extends Component {
 
     state = {
-        visible: true
+        visible: true,
+        calendar:true
     }
 
     handleChange = (event) => {
@@ -40,12 +42,13 @@ class CheckRate extends Component {
         if (this.state.visible) {
             show = (
                 <Fragment>
+                    <Back show={this.state.calendar} click={this.calendarhandler}/>
                     <div >
                         <form className="check" onSubmit={this.handleSubmit}>
                         <ul>
                             <li><input name="number" id="nums" type="text" placeholder="Number of Adults" /></li>
-                            <li id="date-field"><input name="date" type="text" placeholder="Check-in and check-out" value={this.props.checkin}></input></li>
-                           {this.props.checkin ? null: <li id="date-picker"><DateRangePicker onSelect={this.onSelect} /></li>}
+                            <li id="date-field"><input name="date" onClick={this.calendarhandler} type="text" placeholder="Check-in and check-out" value={this.props.checkin}></input></li>
+                           {this.state.calendar ?  <li  id="date-picker"><DateRangePicker onSelect={this.onSelect} /></li>:null}
                             <li><button onClick={this.handleSubmit}>Check</button></li>
                         </ul>
                         </form>
