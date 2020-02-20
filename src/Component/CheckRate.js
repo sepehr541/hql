@@ -37,6 +37,19 @@ class CheckRate extends Component {
 
     }
 
+    componentDidMount() {
+        const dateField = document.getElementById("date-field");
+        const datePicker = document.getElementById("date-picker");
+        console.log(dateField);
+        dateField.addEventListener('focus', (event)=>{
+            datePicker.style.display = "inline-block";
+        })
+
+        datePicker.addEventListener('blur', (event)=>{
+            event.target.style.display= "none";
+        })
+    }
+
     render() {
         let show = null
         if (this.state.visible) {
