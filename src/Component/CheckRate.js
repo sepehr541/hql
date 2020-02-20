@@ -57,7 +57,7 @@ class CheckRate extends Component {
                             <li><input name="number" id="nums" type="text" placeholder="Number of Adults" /></li>
                             <li id="date-field"><input name="date" onClick={this.calendarhandler} type="text" placeholder="Check-in and check-out" value={this.props.checkin}></input></li>
                            {this.state.calendar ?  <li  id="date-picker"><DateRangePicker onSelect={this.onSelect} /></li>:null}
-                            <li><button onClick={this.handleSubmit}>Check</button></li>
+                           {this.props.showCheck ? <li><button onClick={this.handleSubmit}>Check</button></li>:null}
                         </ul>
                         </form>
                     </div>
