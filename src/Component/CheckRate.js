@@ -61,7 +61,8 @@ class CheckRate extends Component {
                         </ul>
                         </form>
                     </div>
-                </Fragment>)
+                </Fragment>
+                )
         }
 
         return (
