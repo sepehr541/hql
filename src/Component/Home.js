@@ -1,19 +1,16 @@
 import React  from 'react'
 import "./video.css"
-import Video from ""
+import Video from "../vancouver.mp4"
 
 const Home = (props) => {
     return(
         <div className="Home">
-            <head>
-            <title>Vancouver </title>
-            </head>
+        
             {/* <iframe width="1000" height="678" src="https://www.youtube.com/embed/WbfjRoQVZSw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
-            <video width="540" height="310" controls>
-                <source src="~/Desktop/vancouver.mp4" type="video/mp4"/>
-                <source src="~/Desktop/vancouver.mp4" type="video/ogg"/>
-
-
+           
+            <video className="video" loop  width="1000" height="500" controls>
+                <source src={Video} type="video/mp4"/>
+                
              </video>
    
      
