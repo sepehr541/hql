@@ -21,7 +21,7 @@ const Nav=(props)=>{
         <button onClick={()=>checkhandle()}> Check your rate </button>
          </header>
          <div>
-       {rate ?<Checkrate/>:null}
+       {rate ?<Checkrate showCheck={true}/>:null}
          </div>
         </Fragment>
     )
