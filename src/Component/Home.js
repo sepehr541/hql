@@ -5,12 +5,18 @@ import Video from ""
 const Home = (props) => {
     return(
         <div className="Home">
-            
-            {/* <iframe title="Vancouver" className="video" width="1000" height="500" src="https://www.youtube.com/embed/WbfjRoQVZSw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */} <video width="500" height="300" controls>
-  <source src={Video} type="video/mp4"/>
-  <p>This browser does not support the video element.</p>
-</video>
-      
+            <head>
+            <title>Vancouver </title>
+            </head>
+            {/* <iframe width="1000" height="678" src="https://www.youtube.com/embed/WbfjRoQVZSw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
+            <video width="540" height="310" controls>
+                <source src="~/Desktop/vancouver.mp4" type="video/mp4"/>
+                <source src="~/Desktop/vancouver.mp4" type="video/ogg"/>
+
+
+             </video>
+   
+     
         </div>
     )
 }
