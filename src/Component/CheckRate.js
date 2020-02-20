@@ -10,7 +10,7 @@ class CheckRate extends Component {
 
     state = {
         visible: true,
-        calendar:true
+        calendar:false,
     }
 
     handleChange = (event) => {
