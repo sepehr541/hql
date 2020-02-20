@@ -4,7 +4,7 @@ import Video from "../vancouver.mp4"
 
 const Home = (props) => {
     return(
-        <div className="Home">
+        <div classN ame="Home">
         
             {/* <iframe width="1000" height="678" src="https://www.youtube.com/embed/WbfjRoQVZSw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> */}
            
