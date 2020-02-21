@@ -33,7 +33,7 @@ class CheckRate extends Component {
         })
 
         )
-        //this.props.history.push("/resv")
+        this.props.history.push("/Rooms")
 
     }
 

@@ -4,6 +4,7 @@ import About from "./Component/About"
 import Nav from "./Component/Navbar/Navigation"
 import Reservation from "./Component/Reservation"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
+import Rooms from "./Component/Rooms"
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           </Route>
 
           <Route path="/resv" component={Reservation}/>
+          <Route path="/Rooms" component={Rooms}/>
             
 
         </Switch>
