@@ -11,7 +11,8 @@ const reducer=(state=initialstate,action)=>{
         return{
             ...state,
             check_in:action.start,
-            check_out:action.end
+            check_out:action.end,
+            people:action.people
         }
 
     }
