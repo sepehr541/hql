@@ -6,6 +6,7 @@ import { connect } from "react-redux"
 import { gettingdate } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
 import 'react-dates/initialize'
+import './react_dates_overrides.css';
 
 
 class CheckRate extends Component {
@@ -44,6 +45,9 @@ class CheckRate extends Component {
 
     // }
 
+    // componentDidMount() {
+    //     document.querySelector(".DayPicker_transitionContainer").style.height = 400;
+    // }
 
 
     render() {
@@ -64,6 +68,7 @@ class CheckRate extends Component {
                                         onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }) }}
                                         focusedInput={this.state.focusedInput}
                                         onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
+                                        horizontalMargin={1000}
                                     />
                                 </li>
                                 <li><button onClick={this.handleSubmit}>Check</button></li>
