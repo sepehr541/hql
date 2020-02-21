@@ -13,7 +13,7 @@ const Room=(props)=>{
         <div className="Room">
             <header  className="type" >Room Type </header>
             <span className="from">From
-                <span style={{position:"relative", right:"-30px"}}>{props.price}</span>
+                <span style={{position:"relative", right:"-30px"}}>{props.price} $</span>
            </span>
 
             <Fragment>
