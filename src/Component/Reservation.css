@@ -1,9 +1,20 @@
-.Reservation input, label {
+.Reservation {
     position: relative;
     left: 100px;
     top: 150px;
-    margin: auto;
-    width: 50%;
+    margin-left: 30%;
+    width: 30%;
     border: 1px solid grey;
     padding: 10px;
+    box-sizing: border-box;
 }
+
+.Reservation h2 {
+    font-size: small;
+    text-align: center;
+}
+
+.Reservation h1 {
+    font-size: large;
+}
+
