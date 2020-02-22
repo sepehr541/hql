@@ -2,8 +2,7 @@
     width: 600px;
     border: 1px solid black;
     padding: 50px;
-    margin-top: 150px;
-    margin-left: 32%;
+    margin-left: 40%;
     position: relative;
     background-color: silver;
     
@@ -37,3 +36,13 @@
     position: relative;
     top:20px;
 }
+
+.pic{
+    position: relative;
+    width: 300px;
+    top:233px;
+    left:372px;
+    height: 228px;
+}
+
+ 

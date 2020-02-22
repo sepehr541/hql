@@ -13,6 +13,10 @@ const Room=(props)=>{
     }
     
     return(
+        <Fragment>
+            <div>   
+              <img src={props.source} alt ="" className="pic" />
+            </div>
         <div className="Room">
             <header  className="type" >Room Type </header>
             <span className="from">From
@@ -24,8 +28,9 @@ const Room=(props)=>{
             <div className="bed">{props.bedtype} </div>
             </Fragment>
             <button onClick={checkouthandler} className="checkout">Checkout</button>
-
         </div>
+        </Fragment>
+       
     )
 }
 
