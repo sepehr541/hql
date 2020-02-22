@@ -7,9 +7,11 @@ import {createStore,compose,applyMiddleware,combineReducers } from "redux"
 import {Provider} from "react-redux"
 import thunk from "redux-thunk"
 import reducer1 from "./Reducers/reducer1"
+import reducer2 from "./Reducers/reducer2"
 
 const rootreducer=combineReducers({
-    dates:reducer1
+    dates:reducer1,
+    bed_price:reducer2
 })
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store=createStore(rootreducer,composeEnhancers(applyMiddleware(thunk)))

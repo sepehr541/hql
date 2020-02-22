@@ -8,6 +8,7 @@ class Reservation extends Component {
     }
 
     render() {
+        console.log(this.props.bedtype);
         return (
             <Fragment>
                 <div className="Reservation container">
@@ -38,7 +39,9 @@ class Reservation extends Component {
 const maptostate = state => {
     return {
         check_in: state.dates.check_in,
-        check_out: state.dates.check_out
+        check_out: state.dates.check_out,
+        bedtype:state.bed_price.bedtype,
+        price:state.bed_price.price
     }
 }
 
