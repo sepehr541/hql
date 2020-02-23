@@ -71,7 +71,7 @@ class CheckRate extends Component {
                                         horizontalMargin={1000}
                                     />
                                 </li>
-                                <li><button onClick={this.handleSubmit}>Check</button></li>
+                                <li><button onClick={this.handleSubmit} className="btn">Check</button></li>
                             </ul>
                         </form>
                     </div>

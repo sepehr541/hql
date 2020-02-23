@@ -18,7 +18,7 @@ const Nav=(props)=>{
          <header className="Nav">
          <NavLink onClick={()=>checkratehandler()} to="/resv">Make a booking</NavLink>
          <NavLink to="/about">About Us</NavLink>
-        <button onClick={()=>checkhandle()}> Check your rate </button>
+        <button onClick={()=>checkhandle()} className="btn"> Check your rate </button>
          </header>
          <div>
        {rate ?<Checkrate showCheck={true}/>:null}
