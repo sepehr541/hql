@@ -5,3 +5,8 @@
 .DayPicker_weekHeader {
     top: 40px;
 }
+
+.DateRangePicker_picker {
+    top: auto !important;
+    left: auto !important;
+}
