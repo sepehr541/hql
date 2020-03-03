@@ -2,6 +2,9 @@ import React, {useState, Fragment } from "react"
 import "./Nav.css"
 import Checkrate from "../CheckRate"
 import {NavLink} from 'react-router-dom'
+import {Route} from "react-router-dom"
+import Home from "../Home"
+import "../video.css"
 
 const Nav=(props)=>{
     const [rate,setrate]=useState(false)
@@ -14,15 +17,17 @@ const Nav=(props)=>{
     }
 
     return(
-        <Fragment>
-         <header className="Nav">
+        <Fragment >
+            <div >
+            <header style={{opacity:"0.6"}} className="Nav">
          <NavLink onClick={()=>checkratehandler()} to="/resv">Make a booking</NavLink>
          <NavLink to="/about">About Us</NavLink>
         <button onClick={()=>checkhandle()} className="btn"> Check your rate </button>
          </header>
-         <div>
        {rate ?<Checkrate showCheck={true}/>:null}
-         </div>
+            </div>
+     
+
         </Fragment>
     )
 }

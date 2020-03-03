@@ -1,7 +1,7 @@
 .DayPicker_transitionContainer {
     height: 350px !important;
+    z-index: 99 !important;
+    position: fixed !important;
 }
 
-.DayPicker_weekHeader {
-    top: 40px;
-}
+

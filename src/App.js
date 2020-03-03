@@ -5,13 +5,18 @@ import Nav from "./Component/Navbar/Navigation"
 import Reservation from "./Component/Reservation"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import Rooms from "./Component/Rooms"
+import "./Component/video.css"
+
 
 function App() {
   return (
     <BrowserRouter>
       <Fragment>
+        <div >
         <Nav />
         <Route exact path="/" component={Home}/>
+        </div>
+      
         <Switch>
         
           <Route path="/about">
