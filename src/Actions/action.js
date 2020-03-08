@@ -13,7 +13,7 @@ export const sending_dates_to_redux=(start,end,people)=>{
 export const gettingdate=(start,end,people)=>{
     return dispatch=>{
         dispatch(sending_dates_to_redux(start,end,people))
-        axios.post(`http://localhost:9000/reservation?${start}&${end}&${people}`,{start,end,people} )
+        axios.post(`http://localhost:9000/reservation?start=${start}&end=${end}&people=${people}`,{start,end,people} )
         .then(resp=>{
             console.log(resp);
         }).catch(e=>{
