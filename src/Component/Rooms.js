@@ -16,28 +16,28 @@ const Rooms = (props) => {
     // )):<div className="error"> Sorry there is no room available to match your request </div>}
 
 console.log(props.availableRooms);
-let roomAvailability
-if(props.availableRooms && props.availableRooms.length===0){
-        roomAvailability=(
-        <Fragment> 
-        <div>         
-            <Spinner/>
-        </div>
-            <div className="empty" >
-             You are being redirected to the main page because there is no room available to math your request
-            </div> 
-        </Fragment>)
-        
-   setTimeout(() => {
-        props.history.push("/")
-    }, 2000);
+    let roomAvailability
+    if(props.availableRooms && props.availableRooms.length===0){
+            roomAvailability=(
+            <Fragment> 
+            <div>         
+                <Spinner/>
+            </div>
+                <div className="empty" >
+                You are being redirected to the main page because there is no room available to math your request
+                </div> 
+            </Fragment>)
+            
+    setTimeout(() => {
+            props.history.push("/")
+        }, 2000);
 }
-if(props.availableRooms && props.availableRooms.length>0){
-    roomAvailability=props.availableRooms.map(x => (
-        <Room price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3}/>))
-}else if(!props.availableRooms){
-    roomAvailability=<div className="error"> Sorry there is no room available to match your request </div>
-}
+    if(props.availableRooms && props.availableRooms.length>0){
+        roomAvailability=props.availableRooms.map(x => (
+            <Room price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3}/>))
+    }else if(!props.availableRooms){
+        roomAvailability=<div className="error"> Sorry there is no room available to match your request </div>
+    }
     return (
         <div className="Rooms">
             <Fragment>
