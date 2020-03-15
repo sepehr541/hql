@@ -2,7 +2,7 @@ import "../Actions/action"
 const initialstate={
    check_in:null,
    check_out:null,
-   people:null
+   people:null,
 }
 
 const reducer=(state=initialstate,action)=>{
@@ -17,9 +17,7 @@ const reducer=(state=initialstate,action)=>{
         }
 
     }
-
-
-
+    
 
     return state
 }

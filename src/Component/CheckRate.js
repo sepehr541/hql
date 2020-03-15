@@ -3,41 +3,48 @@ import "./Checkrate.css"
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import { connect } from "react-redux"
-import { gettingdate } from "../Actions/action"
+import { gettingdate  } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
 import 'react-dates/initialize'
 import './react_dates_overrides.css';
 
 
 class CheckRate extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
+
+        state = {
             startDate: null,
             endDate: null,
             focusedInput: null,
             visible: true,
+            people:null,
+            sending:false
         };
-    }
+    
 
 
     handleChange = (event) => {
         this.setState({
             value: event.target.value,
         })
+       
+
     }
 
-    handleSubmit = (event) => {
-        event.preventDefault();
+    handleSubmit = () => {
         this.setState(prev => ({
-            visible: !prev.visible
+            visible: !prev.visible,
+            sending:true
         })
-
         )
-        this.props.history.push("/Rooms")
-
+        if(!this.state.startDate||!this.state.endDate||!this.state.people){
+            alert("Please fill the required forms in order to continue")
+        }else{
+            this.props.send_dates(this.state.startDate._d,this.state.endDate._d,this.state.people)        
+            this.props.history.push("/Rooms")
+    
+        }
+      
     }
-
     // onSelect = (dates) => {
     //     console.log(dates);
     //     let nums = document.getElementById("nums").value
@@ -45,9 +52,14 @@ class CheckRate extends Component {
 
     // }
 
-    // componentDidMount() {
-    //     document.querySelector(".DayPicker_transitionContainer").style.height = 400;
-    // }
+    get_people=(e)=>{
+        let people=e.target.value
+        this.setState({
+            people:people
+        })
+        // console.log(this.state.people);
+    }
+
 
 
     render() {
@@ -58,17 +70,19 @@ class CheckRate extends Component {
                     <div >
                         <form className="check" onSubmit={this.handleSubmit}>
                             <ul>
-                                <li><input name="number" id="nums" type="text" placeholder="Number of Adults" /></li>
+                                <li><input name="number" onChange={(e)=>this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
                                 <li id="date-picker">
                                     <DateRangePicker
                                         startDateId="startDate"
                                         endDateId="endDate"
                                         startDate={this.state.startDate}
                                         endDate={this.state.endDate}
-                                        onDatesChange={({ startDate, endDate }) => { this.setState({ startDate, endDate }) }}
+                                        onDatesChange={({ startDate, endDate }) => {
+                                            this.setState({ startDate, endDate })}}
                                         focusedInput={this.state.focusedInput}
                                         onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
                                         horizontalMargin={1000}
+                                        
                                     />
                                 </li>
                                 <li><button onClick={this.handleSubmit} className="btn">Check</button></li>
@@ -87,15 +101,15 @@ class CheckRate extends Component {
 
 const maptostate = state => {
     return {
-        checkin: state.dates.check_in
-
+        checkin: state.dates.check_in,
+        checkout: state.dates.check_out
     }
 }
 const maptoprops = dispatch => {
     return {
-        send_dates: (start, end, people) => dispatch(gettingdate(start, end, people))
+        send_dates: (start, end,people) => dispatch(gettingdate(start, end,people)),
     }
 }
 
 
-export default connect(maptostate, maptoprops)(withRouter(CheckRate));
+export default withRouter(connect(maptostate, maptoprops)(CheckRate));

@@ -1,11 +1,11 @@
 import React, { Fragment } from "react"
 import "./Room.css"
 import {withRouter} from "react-router-dom"
-import {connect} from "react-redux"
-import {getting_type_price} from "../Actions/action"
 
 
 const Room=(props)=>{
+
+
     
     var checkouthandler=()=>{
         props.getting_bed_price(props.bedtype,props.price)
@@ -18,7 +18,7 @@ const Room=(props)=>{
               <img src={props.source} alt ="" className="pic" />
             </div>
         <div className="Room">
-            <header  className="type" >Room Type </header>
+            <header  className="type" >Room is available</header>
             <span className="from">From
                 <span style={{position:"relative", right:"-20px"}}>{props.price} $</span>
            </span>
@@ -34,11 +34,14 @@ const Room=(props)=>{
     )
 }
 
-const maptoprops=dispatch=>{
-    return{
-        getting_bed_price:(bed,price)=>dispatch(getting_type_price(bed,price))
-    }
-}
+// const maptostate = state=>{
+//     return{
+//         check_in : state.dates.check_in,
+//         check_out : state.dates.check_out
+//     }
+// }
 
 
-export default connect(null,maptoprops)(withRouter(Room));
+
+
+export default withRouter(Room);

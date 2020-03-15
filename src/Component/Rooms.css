@@ -2,3 +2,24 @@
     position: relative;
     margin-top: -40px 
 }
+
+.error{
+    position: relative;
+    border:5px solid dimgray;
+    margin-top: 20%;
+    margin-left: 33%;
+    font-size: large;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    width:30%;
+}
+
+
+.empty{
+    position: absolute;
+    padding: 20px;
+    margin-left: 27%;
+    font-size: large;
+    
+}
