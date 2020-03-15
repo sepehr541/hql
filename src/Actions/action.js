@@ -38,5 +38,4 @@ export const gettingdate=(start,end,people)=>{
 
 
 
-
  
