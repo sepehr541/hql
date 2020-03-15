@@ -36,10 +36,14 @@ class CheckRate extends Component {
             sending:true
         })
         )
-        
-        this.props.send_dates(this.state.startDate._d,this.state.endDate._d,this.state.people)        
-        this.props.history.push("/Rooms")
-
+        if(!this.state.startDate||!this.state.endDate||!this.state.people){
+            alert("Please fill the required forms in order to continue")
+        }else{
+            this.props.send_dates(this.state.startDate._d,this.state.endDate._d,this.state.people)        
+            this.props.history.push("/Rooms")
+    
+        }
+      
     }
     // onSelect = (dates) => {
     //     console.log(dates);
@@ -108,4 +112,4 @@ const maptoprops = dispatch => {
 }
 
 
-export default connect(maptostate, maptoprops)(withRouter(CheckRate));
+export default withRouter(connect(maptostate, maptoprops)(CheckRate));

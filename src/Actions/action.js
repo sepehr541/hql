@@ -9,13 +9,23 @@ export const sending_dates_to_redux=(start,end,people)=>{
     }
 }
 
+export const available_rooms=(list)=>{
+    return{
+        type:'listOfAvailable',
+        list:list
+    }
+}
+
 
 export const gettingdate=(start,end,people)=>{
     return dispatch=>{
         dispatch(sending_dates_to_redux(start,end,people))
-        axios.post(`http://localhost:9000/reservation?start=${start}&end=${end}&people=${people}`,{start,end,people} )
+        let obj={start,end,people}
+        axios.post("http://localhost:9000/reservation",obj)
         .then(resp=>{
-            console.log(resp);
+            console.log(resp.data);
+            let available=resp.data 
+            dispatch(available_rooms(available))
         }).catch(e=>{
             console.log(e);
         })
@@ -25,13 +35,7 @@ export const gettingdate=(start,end,people)=>{
     
 }
 
-export const getting_type_price=(bedtype,price)=>{
-    return{
-        type:"bed",
-        bedtype:bedtype,
-        price:price,
-    }
-}
+
 
 
 

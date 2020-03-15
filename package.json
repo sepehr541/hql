@@ -40,7 +40,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-dates": "^17.1.9",
+    "@types/react-dates": "^17.1.10",
     "moment": "^2.24.0",
     "moment-range": "^3.1.1",
     "react-daterange-picker": "^2.0.1",

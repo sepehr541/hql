@@ -1,17 +1,15 @@
 import "../Actions/action"
 
 let initialstate={
-    bedtype:null,
-    price:0
+    availableRooms:[]
 }
 
 
 const reducer =(state=initialstate,action)=>{
-    if(action.type==="bed"){
+    if(action.type==='listOfAvailable'){
         return{
             ...state,
-            bedtype:action.bedtype,
-            price:action.price
+            availableRooms:action.list
         }
     }
 
