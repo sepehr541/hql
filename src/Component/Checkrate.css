@@ -1,13 +1,27 @@
 .check {
-    margin-top: 60px
+    margin-top: 0px;
 }
 
 .check li {
     position: relative;
     display: inline-block;
-    padding: 1em;
+    padding: 0em 1em;
 }
 
+#checkbar {
+    position: relative;
+    height: 60px;
+    top: -60px;
+    background-color: rgba(255, 255, 255, 0.356);
+    transition: top 0.5s;
+    color: white;
+}
 
+#nums {
+    color: white;
+}
 
-
+::placeholder {
+    color: white;
+    opacity: 1;
+}

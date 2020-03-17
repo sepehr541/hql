@@ -27,7 +27,7 @@ class CheckRate extends Component {
             sending: true
         }))
         if (!this.state.startDate || !this.state.endDate || !this.state.people) {
-            alert("Please fill the required forms in order to continue")
+            alert("Please fill the required forms in order to continue");
         } else {
             this.props.send_dates(this.state.startDate._d, this.state.endDate._d, this.state.people)
             this.props.history.push("/Rooms")
@@ -41,37 +41,31 @@ class CheckRate extends Component {
     }
 
     render() {
-        let show = null;
-        if (this.state.visible) {
-            show = (
-                <Fragment>
-                    <div >
-                        <form className="check" onSubmit={this.handleSubmit}>
-                            <ul>
-                                <li><input name="number" onChange={(e) => this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
-                                <li id="date-picker">
-                                    <DateRangePicker
-                                        startDateId="startDate"
-                                        endDateId="endDate"
-                                        startDate={this.state.startDate}
-                                        endDate={this.state.endDate}
-                                        onDatesChange={({ startDate, endDate }) => {
-                                            this.setState({ startDate, endDate })
-                                        }}
-                                        focusedInput={this.state.focusedInput}
-                                        onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
-                                        horizontalMargin={1000}
-                                    />
-                                </li>
-                                <li><button onClick={this.handleSubmit} className="btn">Check</button></li>
-                            </ul>
-                        </form>
-                    </div>
-                </Fragment>
-            )
-        }
         return (
-            show
+            <Fragment>
+                <div id="checkbar">
+                    <form className="check" onSubmit={this.handleSubmit}>
+                        <ul>
+                            <li><input name="number" onChange={(e) => this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
+                            <li id="date-picker">
+                                <DateRangePicker
+                                    startDateId="startDate"
+                                    endDateId="endDate"
+                                    startDate={this.state.startDate}
+                                    endDate={this.state.endDate}
+                                    onDatesChange={({ startDate, endDate }) => {
+                                        this.setState({ startDate, endDate })
+                                    }}
+                                    focusedInput={this.state.focusedInput}
+                                    onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
+                                    horizontalMargin={1000}
+                                />
+                            </li>
+                            <li><button onClick={this.handleSubmit} className="btn">Check</button></li>
+                        </ul>
+                    </form>
+                </div>
+            </Fragment>
         )
     }
 }

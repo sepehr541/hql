@@ -12,9 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Fragment>
-        <div>
         <Nav />
-        </div>
         <Route exact path="/" component={Home}/>
         <Switch>
         <Route path="/Rooms" component={Rooms}/>

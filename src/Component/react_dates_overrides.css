@@ -1,6 +1,16 @@
+
+.DateRangePickerInput {
+    background: transparent !important;
+    border-radius: 0;
+    border: 0;
+}
+
+.DateInput_1 {
+    background: transparent !important;
+}
+
 .DayPicker_transitionContainer {
     height: 350px !important;
-    z-index: 99 !important;
     position: fixed !important;
 }
 
@@ -11,4 +21,9 @@
 .DateRangePicker_picker {
     top: auto !important;
     left: auto !important;
+}
+
+.DateRangePickerInput_arrow {
+    color: #26a69a !important;
+    padding-right: 10px;
 }
