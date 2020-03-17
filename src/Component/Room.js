@@ -5,8 +5,6 @@ import {withRouter} from "react-router-dom"
 
 const Room=(props)=>{
 
-
-    
     var checkouthandler=()=>{
         props.getting_bed_price(props.bedtype,props.price)
         props.history.push("/resv")

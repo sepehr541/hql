@@ -3,7 +3,7 @@ import "./Checkrate.css"
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import { connect } from "react-redux"
-import { gettingdate  } from "../Actions/action"
+import { gettingdate } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
 import 'react-dates/initialize'
 import './react_dates_overrides.css';
@@ -11,66 +11,44 @@ import './react_dates_overrides.css';
 
 class CheckRate extends Component {
 
-        state = {
-            startDate: null,
-            endDate: null,
-            focusedInput: null,
-            visible: true,
-            people:null,
-            sending:false
-        };
-    
+    state = {
+        startDate: null,
+        endDate: null,
+        focusedInput: null,
+        visible: true,
+        people: null,
+        sending: false
+    };
 
-
-    handleChange = (event) => {
-        this.setState({
-            value: event.target.value,
-        })
-       
-
-    }
-
-    handleSubmit = () => {
+    handleSubmit = (event) => {
+        event.preventDefault();
         this.setState(prev => ({
             visible: !prev.visible,
-            sending:true
-        })
-        )
-        if(!this.state.startDate||!this.state.endDate||!this.state.people){
+            sending: true
+        }))
+        if (!this.state.startDate || !this.state.endDate || !this.state.people) {
             alert("Please fill the required forms in order to continue")
-        }else{
-            this.props.send_dates(this.state.startDate._d,this.state.endDate._d,this.state.people)        
+        } else {
+            this.props.send_dates(this.state.startDate._d, this.state.endDate._d, this.state.people)
             this.props.history.push("/Rooms")
-    
         }
-      
     }
-    // onSelect = (dates) => {
-    //     console.log(dates);
-    //     let nums = document.getElementById("nums").value
-    //     this.props.send_dates(dates.start._d, dates.end._d, nums)
 
-    // }
-
-    get_people=(e)=>{
-        let people=e.target.value
+    get_people = (e) => {
         this.setState({
-            people:people
+            people: e.target.value
         })
-        // console.log(this.state.people);
     }
-
-
 
     render() {
-        let show = null
+        let show = null;
         if (this.state.visible) {
             show = (
                 <Fragment>
                     <div >
                         <form className="check" onSubmit={this.handleSubmit}>
                             <ul>
-                                <li><input name="number" onChange={(e)=>this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
+                                <li><input name="number" onChange={(e) => this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
                                 <li id="date-picker">
                                     <DateRangePicker
                                         startDateId="startDate"
@@ -78,11 +56,11 @@ class CheckRate extends Component {
                                         startDate={this.state.startDate}
                                         endDate={this.state.endDate}
                                         onDatesChange={({ startDate, endDate }) => {
-                                            this.setState({ startDate, endDate })}}
+                                            this.setState({ startDate, endDate })
+                                        }}
                                         focusedInput={this.state.focusedInput}
                                         onFocusChange={(focusedInput) => { this.setState({ focusedInput }) }}
                                         horizontalMargin={1000}
-                                        
                                     />
                                 </li>
                                 <li><button onClick={this.handleSubmit} className="btn">Check</button></li>
@@ -92,7 +70,6 @@ class CheckRate extends Component {
                 </Fragment>
             )
         }
-
         return (
             show
         )
@@ -107,7 +84,7 @@ const maptostate = state => {
 }
 const maptoprops = dispatch => {
     return {
-        send_dates: (start, end,people) => dispatch(gettingdate(start, end,people)),
+        send_dates: (start, end, people) => dispatch(gettingdate(start, end, people)),
     }
 }
 
