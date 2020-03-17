@@ -5,22 +5,16 @@ const initialstate={
    people:null,
 }
 
-const reducer=(state=initialstate,action)=>{
-    if(action.type==="dates"){
-        console.log(action.start);
-        
+const reducer = (state = initialstate, action) => {
+    if (action.type === "dates") {
         return{
             ...state,
             check_in:action.start,
             check_out:action.end,
             people:action.people
         }
-
     }
-    
-
     return state
 }
-
 
 export default reducer
