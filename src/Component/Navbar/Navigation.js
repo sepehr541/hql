@@ -2,8 +2,6 @@ import React, {useState, Fragment } from "react"
 import "./Nav.css"
 import Checkrate from "../CheckRate"
 import {NavLink} from 'react-router-dom'
-import {Route} from "react-router-dom"
-import Home from "../Home"
 import "../video.css"
 
 const Nav=(props)=>{
