@@ -40,8 +40,8 @@ const maptostate = state => {
     return {
         check_in: state.dates.check_in,
         check_out: state.dates.check_out,
-        bedtype:state.bed_price.bedtype,
-        price:state.bed_price.price
+        // bedtype:state.bed_price.bedtype,
+        // price:state.bed_price.price
     }
 }
 
