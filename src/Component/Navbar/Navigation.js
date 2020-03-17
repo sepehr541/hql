@@ -17,7 +17,7 @@ const Nav=(props)=>{
     return(
         <Fragment >
             <div >
-            <header style={{opacity:"0.6"}} className="Nav">
+            <header  className="Nav">
          <NavLink onClick={()=>checkratehandler()} to="/resv">Make a booking</NavLink>
          <NavLink to="/about">About Us</NavLink>
         <button onClick={()=>checkhandle()} className="btn"> Check your rate </button>
