@@ -1,7 +1,7 @@
 .vidcontain{
-    top:0;
+    top:60px;
     left:0;
-   height:100%;
+    height:90%;
     width:100%;
     overflow: hidden;
     translate:(-50%,-50%);
@@ -18,7 +18,7 @@
 
 .vid{
     z-index:-1;
-    width: 100%;
+    width: 85%;
     object-fit: cover;
 
 }

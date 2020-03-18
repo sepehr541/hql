@@ -29,7 +29,7 @@
    height: 60px;
    z-index: 1;
    pointer-events: none;
-   background-color: black;
+   background-color: white;
    position: absolute;
-   opacity: 0.1;
+   opacity: 0.2;
 }
