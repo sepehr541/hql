@@ -1,5 +1,6 @@
 .check {
-    margin-top: 0px;
+    margin-top: 60px;
+
 }
 
 .check li {
@@ -8,21 +9,27 @@
     padding: 0em 1em;
 }
 
-#checkbar {
-    position: relative;
-    height: 60px;
-    top: -60px;
-    background-color: grey;
-    transition: top 0.5s;
-    color: white;
-    opacity: 0.6;
-}
+ /* #checkbar {
+   z-index: 1;
+}  */
 
 #nums {
-    color: white;
+    color: black;
+    font-style: italic;
+
 }
 
 ::placeholder {
-    color: white;
-    opacity: 1;
+    color: black;
+    z-index: 1;
+}
+
+.underneath{
+   width: 100%;
+   height: 60px;
+   z-index: 1;
+   pointer-events: none;
+   background-color: black;
+   position: absolute;
+   opacity: 0.1;
 }
