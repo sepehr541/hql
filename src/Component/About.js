@@ -4,11 +4,12 @@ const About = (props) => {
     console.log()
     return(
         <Fragment>
-            <div className="About container">
+            <div className="about">
                 <p>
-                    We are HQL!
+                    Welcome to HQL!
                 </p>
             </div>
+               
         </Fragment>
     ) 
 }

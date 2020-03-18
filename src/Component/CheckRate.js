@@ -40,14 +40,19 @@ class CheckRate extends Component {
         })
     }
 
+    //fixed the transparency and the nav bar
+
     render() {
         return (
             <Fragment>
+            
+                <div className="underneath"/>
                 <div id="checkbar">
+
                     <form className="check" onSubmit={this.handleSubmit}>
                         <ul>
-                            <li><input name="number" onChange={(e) => this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
-                            <li id="date-picker">
+                            <li><input style={{fontWeight:"700" }} name="number" onChange={(e) => this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
+                            <li id="date-picker" >
                                 <DateRangePicker
                                     startDateId="startDate"
                                     endDateId="endDate"
@@ -61,9 +66,11 @@ class CheckRate extends Component {
                                     horizontalMargin={1000}
                                 />
                             </li>
-                            <li><button onClick={this.handleSubmit} className="btn">Check</button></li>
+                            <li><button  onClick={this.handleSubmit} className="btn">Check</button></li>
                         </ul>
                     </form>
+     
+
                 </div>
             </Fragment>
         )
