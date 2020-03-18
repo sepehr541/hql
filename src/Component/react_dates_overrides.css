@@ -14,9 +14,6 @@
     border-bottom-color: #ffffff;
 }
 
-#startDate , #endDate
-
-
 .DayPicker_transitionContainer {
     height: 350px !important;
     position: fixed !important;
