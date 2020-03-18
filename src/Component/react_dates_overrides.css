@@ -7,15 +7,23 @@
 
 .DateInput_1 {
     background: transparent !important;
+    
 }
+#startDate , #endDate{
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
+#startDate , #endDate
+
 
 .DayPicker_transitionContainer {
     height: 350px !important;
     position: fixed !important;
 }
 
-.DayPicker_weekHeader {
-    top: 40px;
+.DayPickerKeyboardShortcuts_buttonReset{
+    display: none;
 }
 
 .DateRangePicker_picker {
@@ -24,6 +32,9 @@
 }
 
 .DateRangePickerInput_arrow {
-    color: #26a69a !important;
     padding-right: 10px;
+}
+
+.DateRangePickerInput_arrow_svg {
+    fill: #ffffff !important;
 }

@@ -12,17 +12,21 @@
     position: relative;
     height: 60px;
     top: -60px;
-    background-color: grey;
+    background-color: rgba(99, 99, 107, 0.63);
     transition: top 0.5s;
     color: white;
-    opacity: 0.6;
 }
 
 #nums {
     color: white;
+    vertical-align: middle;
+    border-bottom-color: white;
+    transition: border .3s;
 }
 
 ::placeholder {
     color: white;
     opacity: 1;
+    font-size: 16px;
+    font-weight: lighter;
 }
