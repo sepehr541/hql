@@ -12,16 +12,14 @@ const Nav = (props) => {
     }
 
     let setCheckBarVisibility = () => {
-        // let bar = document.getElementById("checkbar");
-        //you dont have to do that while u can use rate down there why  would chagnge the pixel while u can make it conditional!!
-
-        // if (!rate) {
-            setrate(!rate);
-        //     bar.style.top = "45px";
-        // } else {
-        //     setrate(false)
-        //     bar.style.top = "-60px";
-        // }
+        let bar = document.getElementById("checkbar");
+        if (!rate) {
+            setrate(true);
+            bar.style.top = "120px";
+        } else {
+            setrate(false)
+            bar.style.top = "-60px";
+        }
     }
 
     return (
@@ -31,9 +29,10 @@ const Nav = (props) => {
                     <NavLink to="/about">About Us</NavLink>
                     <button onClick={() => setCheckBarVisibility()} className="btn"> Check your rate </button>
                 </header>
-               { rate? <Checkrate />: null}
+                <Checkrate showCheck={true} />
         </Fragment>
     )
 }
 
 export default Nav;
+

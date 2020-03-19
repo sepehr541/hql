@@ -10,13 +10,16 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
-  box-sizing: border-box,
+  box-sizing: border-box;
+  animation: 1s ease-out 0s 1 slideInFromTop;
+
   
 }
 
 .container {
   display: inline-block;
   cursor: pointer;
+
 }
 
 .bar1, .bar2, .bar3 {
@@ -24,7 +27,7 @@
   height: 5px;
   background-color: white;
   margin: 6px 0;
-  transition: 0.4s;
+
 }
 
 .bar1, .bar2, .bar3:hover {

@@ -1,7 +1,4 @@
-.check {
-    margin-top: 60px;
 
-}
 
 .check li {
     position: relative;
@@ -14,14 +11,14 @@
 }  */
 
 #nums {
-    color: black;
+    color: white;
     font-style: italic;
 
 }
 
 ::placeholder {
-    color: black;
-    z-index: 1;
+    color: white;
+    /* z-index: 1; */
 }
 
 .underneath{
