@@ -45,7 +45,7 @@ class CheckRate extends Component {
             <Fragment>
                 <div id="checkbar">
                     <form className="check" onSubmit={this.handleSubmit}>
-                        <ul>
+                        <ul className="checkItemsList">
                             <li><input name="number" onChange={(e) => this.get_people(e)} id="nums" type="text" placeholder="Number of Adults" /></li>
                             <li id="date-picker">
                                 <DateRangePicker

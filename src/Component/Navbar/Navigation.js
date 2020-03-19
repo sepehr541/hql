@@ -15,7 +15,7 @@ const Nav = (props) => {
         let bar = document.getElementById("checkbar");
         if (!rate) {
             setrate(true);
-            bar.style.top = "45px";
+            bar.style.top = "60px";
         } else {
             setrate(false)
             bar.style.top = "-60px";
