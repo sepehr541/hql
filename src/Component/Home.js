@@ -22,13 +22,7 @@ const Home = (props) => {
     <h1 style={{ marginLeft: "90px", marginTop: "-20px" }}> ____</h1>
         </h1>
       </div>
-
-
-
-
     </Fragment>
-
-
   )
 }
 
