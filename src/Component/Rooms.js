@@ -38,7 +38,7 @@ const Rooms = (props) => {
     return (
         <div className="Rooms">
             <Fragment>
-                <header style={{ marginTop: "100px", position: "relative", fontWeight: "bold", color: "white", marginLeft: "48%" }}>Suits</header>
+                <p style={{ pointerEvents:"none",zIndex:"-100", marginTop: "100px", width:"10px" , position: "relative", fontWeight: "bold", color: "white", marginLeft: "48%" }}>Suits</p>
                 {roomAvailability}
             </Fragment>
         </div>
