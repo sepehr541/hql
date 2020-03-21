@@ -6,12 +6,12 @@ import * as serviceWorker from './serviceWorker';
 import { createStore, compose, applyMiddleware, combineReducers } from "redux"
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
-import reducer1 from "./Reducers/dates_people"
-import reducer2 from "./Reducers/resvinfo"
+import dates_people from "./Reducers/dates_people"
+import resv from "./Reducers/resvinfo"
 
 const rootreducer = combineReducers({
-    dates: reducer1,
-    resvinfo: reducer2
+    dates: dates_people,
+    resvinfo: resv
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

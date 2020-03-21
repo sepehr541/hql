@@ -1,21 +1,24 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useState } from "react"
 import "./Room.css"
 import {withRouter} from "react-router-dom"
 
 
 const Room=(props)=>{
+    const [roomId,setroomID]= useState(null)
 
     var checkouthandler=()=>{
-        props.getting_bed_price(props.bedtype,props.price)
-        props.history.push("/resv")
+
+        props.history.push({
+            pathname:"/resv",
+            search:`?${props.id}`,
+            
+        })
     }
     
     return(
-        <Fragment>
-            <div>   
-              <img src={props.source} alt ="" className="pic" />
-            </div>
+        <Fragment id={props.id}>
         <div className="Room">
+        <img src={props.source} alt ="" className="pic" />    
             <header  className="type" >Room is available</header>
             <span className="from">From
                 <span style={{position:"relative", right:"-20px"}}>{props.price} $</span>
@@ -32,12 +35,6 @@ const Room=(props)=>{
     )
 }
 
-// const maptostate = state=>{
-//     return{
-//         check_in : state.dates.check_in,
-//         check_out : state.dates.check_out
-//     }
-// }
 
 
 

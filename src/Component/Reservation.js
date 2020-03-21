@@ -1,19 +1,27 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux"
+import {withRouter} from "react-router-dom"
 import './Reservation.css'
+import * as qs from 'query-string';
+import {finalResv} from "../Actions/action"
 class Reservation extends Component {
 
     onSubmit = (event) => {
-        event.preventDefault();
+        console.log("kos");
+        let roomNumber=parseInt(qs.parse(this.props.location.search).rn);
+        this.props.SendingFinalResv(this.props.check_in, this.props.check_out, this.props.people, roomNumber)
+        this.props.history.push("/")
+
     }
 
+    
+
     render() {
-        console.log(this.props.bedtype);
         return (
             <Fragment>
-                <div className="Reservation container">
+                <div className="Reservation">
                     <h1>Booking Details</h1>
-                    <form onSubmit={this.onSubmit}>
+                    <form >
                         <h2>Guest Details</h2>
                         <label for="name">Full Name</label>
                         <input type="text" id="name"></input>
@@ -32,6 +40,8 @@ class Reservation extends Component {
                         <input type="text" id="creditCVV" maxlength="4"></input>
                     </form>
                 </div>
+                <button className="button" onClick={this.onSubmit}>Confirm your payment</button>
+
             </Fragment>
         )
     }
@@ -40,9 +50,14 @@ const maptostate = state => {
     return {
         check_in: state.dates.check_in,
         check_out: state.dates.check_out,
-        // bedtype:state.bed_price.bedtype,
-        // price:state.bed_price.price
+        people: state.dates.people
     }
 }
 
-export default connect(maptostate)(Reservation);
+const maptoprops=dispatch=>{
+    return{
+        SendingFinalResv:(check_in, check_out, people, roomNumber)=>dispatch(finalResv(check_in, check_out, people, roomNumber))
+    }
+}
+
+export default withRouter(connect(maptostate, maptoprops)(Reservation));

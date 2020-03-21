@@ -1,6 +1,8 @@
 .Rooms{
     position: relative;
-    margin-top: -40px 
+    top: 150px;
+    z-index: -100;
+    
 }
 
 .error{
@@ -23,4 +25,32 @@
     margin-left: 27%;
     font-size: large;
     
+}
+
+.datebox{
+    position: relative;
+    font-size: 12px;
+    display: inline-block;
+    background-color: #D8D8D8;
+    padding: 0 10px;
+    line-height: 42px;
+    height: 42px;
+    margin: 0;
+    text-transform: uppercase;
+    top: 145px;
+    left: 83%;
+}
+
+.peoplebox{
+position: relative;
+    font-size: 12px;
+    display: inline-block;
+    background-color: #D8D8D8;
+    padding: 0 10px;
+    line-height: 42px;
+    height: 42px;
+    margin: 0;
+    text-transform: uppercase;
+    top:145px;
+    left: 84%;
 }

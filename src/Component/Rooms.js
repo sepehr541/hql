@@ -31,24 +31,38 @@ const Rooms = (props) => {
     }
     if (props.availableRooms && props.availableRooms.length > 0) {
         roomAvailability = props.availableRooms.map(x => (
-            <Room price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
+            <Room id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
     } else if (!props.availableRooms) {
         roomAvailability = <div className="error"> Sorry there is no room available to match your request </div>
     }
+    //these are for the boxes when you ca nsee for how many people and the date you chose
+    let check_in
+    let check_out
+    if(props.checkin){
+         check_in= props.checkin.toString().slice(4,15);
+         check_out=props.checkout.toString().slice(4,15)
+    }
     return (
-        <div className="Rooms">
             <Fragment>
-                <p style={{ pointerEvents:"none",zIndex:"-100", marginTop: "100px", width:"10px" , position: "relative", fontWeight: "bold", color: "white", marginLeft: "48%" }}>Suits</p>
+            <span className="datebox">{check_in}-{check_out}</span>
+            <span className="peoplebox">{props.people} Adults</span>
+                <p style={{ pointerEvents:"none",zIndex:"-100", top: "200px",left:"45%", width:"10px" , position: "fixed", fontWeight: "bold", Left: "48%", color:"red" }}>Suits</p>
+                <div className="Rooms">
                 {roomAvailability}
+                </div>
             </Fragment>
-        </div>
     )
 }
 
-const maptostate = state => {
-    return {
+const maptostate=state=>{
+    return{
+        checkin:state.dates.check_in,
+        checkout:state.dates.check_out,
+        people:state.dates.people,
         availableRooms: state.resvinfo.availableRooms
     }
 }
+
+
 
 export default withRouter(connect(maptostate)(Rooms));

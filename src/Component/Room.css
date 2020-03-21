@@ -1,10 +1,11 @@
 .Room{
-    width: 600px;
+    width: 550px;
     border: 1px solid black;
     padding: 50px;
-    margin-left: 40%;
-    position: relative;
+    left: 40%;
+    position: fixed;
     background-color: silver;
+    top: 34%;
     
 }
 
@@ -38,10 +39,10 @@
 }
 
 .pic{
-    position: relative;
+    position: fixed;
     width: 300px;
-    top:233px;
-    left:372px;
+    top: 34%;
+    left: 372px;
     height: 228px;
 }
 
