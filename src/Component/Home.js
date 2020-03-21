@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import "./video.css"
 import Video from "../../src/vancouver.mp4"
 import van from './PosterPic.jpg'

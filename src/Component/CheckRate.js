@@ -30,7 +30,7 @@ class CheckRate extends Component {
             alert("Please fill the required forms in order to continue");
         } else {
             this.props.send_dates(this.state.startDate._d, this.state.endDate._d, this.state.people)
-            this.props.history.push("/Rooms")
+            this.props.history.push("/resv")
         }
     }
 
