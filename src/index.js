@@ -7,11 +7,11 @@ import { createStore, compose, applyMiddleware, combineReducers } from "redux"
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducer1 from "./Reducers/dates_people"
-import reducer2 from "./Reducers/resvinfo"
+import roomNum from './Reducers/roomNumber'
 
 const rootreducer = combineReducers({
     dates: reducer1,
-    resvinfo: reducer2
+    roomNum:roomNum
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

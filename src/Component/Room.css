@@ -1,13 +1,14 @@
 .Room{
-    width: 600px;
+    width: 505px;
     border: 1px solid black;
     padding: 50px;
-    margin-left: 40%;
-    position: relative;
+    left: 40%;
+    position: absolute;
     background-color: silver;
-    
+    top: 240px;
+    height: 213px;
 }
-
+ 
 .checkout{
     position: relative;
     top:10%;
@@ -18,7 +19,7 @@
     position: relative;
     font-weight: bold;
     top:30px;
-    margin-bottom: 15px;
+    bottom: 15px;
 }
 .type{
     position: relative;
@@ -38,11 +39,11 @@
 }
 
 .pic{
-    position: relative;
+    position: absolute;
     width: 300px;
-    top:233px;
-    left:372px;
-    height: 228px;
+    top: 240px;
+    left: 212px;
+    height: 213px;
 }
 
  

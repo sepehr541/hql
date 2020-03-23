@@ -3,7 +3,7 @@ import "./Checkrate.css"
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import { connect } from "react-redux"
-import { gettingdate } from "../Actions/action"
+import { sending_dates_to_redux } from "../Actions/action"
 import { withRouter } from 'react-router-dom'
 import 'react-dates/initialize'
 import './react_dates_overrides.css';
@@ -78,7 +78,7 @@ const maptostate = state => {
 }
 const maptoprops = dispatch => {
     return {
-        send_dates: (start, end, people) => dispatch(gettingdate(start, end, people)),
+        send_dates: (start, end, people) => dispatch(sending_dates_to_redux(start, end, people)),
     }
 }
 
