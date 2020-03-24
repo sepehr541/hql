@@ -27,13 +27,10 @@ var dateFormatter = (date) => {
 }
 
 let notRun=useRef(true)
-
 useEffect(()=>{
     var gettingRooms=async()=>{
-        
-       const resp= await axios.get(`http://localhost:9000/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
+       const resp= await axios.post(`http://localhost:9000/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
        const resp1=await resp.data
-       console.log('plz no')
        setavailableRooms(resp1)
     }
     gettingRooms()
@@ -41,16 +38,13 @@ useEffect(()=>{
 
     // eslint-disable-next-line
 },[props.start,props.end,props.people])
-console.log(availableRooms)
 
 let roomAvailability
-
       if(notRun.current){
             notRun.current=false
             return null
         }else{
             if (availableRooms.length===0) {
-                console.log('availableRooms')
                 roomAvailability = (
                     <Fragment>
                         <div>
