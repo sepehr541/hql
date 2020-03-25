@@ -17,7 +17,6 @@ const TabsContainer = (props) => {
     // const [activeTab, setTab] = useState(TABS.ROOMS);
 
 
-console.log(props.roomNum)
     let check_in
     let check_out
 
