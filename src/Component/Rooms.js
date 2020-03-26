@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from "react"
+import React, { Fragment, useState, useEffect} from "react"
 import Room from "./Room"
 import "./Rooms.css"
 import bed from "../2bed.jpeg"

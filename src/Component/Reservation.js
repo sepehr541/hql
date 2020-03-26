@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import './Reservation.css'
 import axios from 'axios'
 import Modal from './Modal/Modal'
+import {withRouter} from 'react-router-dom'
 class Reservation extends Component {
     // const [name ,setName]=useState('')
     // const [phoneNum , setPhoneNum]=useState(null)
@@ -11,7 +12,8 @@ class Reservation extends Component {
        name:null,
        phone:null,
        email:null,
-       confirmEmail:null
+       confirmEmail:null,
+       Modal:false
    }
 
 
@@ -61,7 +63,7 @@ class Reservation extends Component {
         
         if(this.state.email!==this.state.confirmEmail)return alert('Your emails dont match')
         //im gonna send as an object but if u want u can put it the url , i figured the url would be too long so this way it would look better
-
+        this.openModal()
         let obj={
             start:this.props.start, 
             end:this.props.end, 
@@ -72,16 +74,37 @@ class Reservation extends Component {
             emial:this.state.email
           }
           console.log(obj)
-        axios.post(`http://localhost:9000/resconf`,obj)
-        .then(resp=>console.log('dasd'))
+        axios.post(`http://localhost:9000/Reservation`,obj)
+        .then(resp=>{console.log(resp.dates)})
+    
+    //  setTimeout(() => {
+    //      this.closeModal()
+    //      this.props.history.push('/')
+    //  }, 2000);
+    }
 
+
+
+
+
+    openModal=()=>{
+        this.setState(({
+            Modal:true
+        }))
+    }
+
+    closeModal=()=>{
+        console.log('dasadds')
+        this.setState(({
+            Modal:false
+        }))
     }
 
     render() {
         return (
             <Fragment>
-                                    <Modal/>
-
+                {this.state.Modal ?
+                <Modal style={{top:'300px'}} show={this.state.Modal} close={this.closeModal}  >Your reservation is beiong confirmed once its confirmed you will be redirected to the main page</Modal>:null }
                 <div className="Reservation">
                     <h1>Booking Details</h1>
                     <form>
@@ -133,4 +156,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps)(Reservation);
+export default withRouter( connect(mapStateToProps)(Reservation));
