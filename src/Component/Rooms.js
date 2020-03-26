@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React, { Fragment, useState, useEffect} from "react"
 import Room from "./Room"
 import "./Rooms.css"
 import bed from "../2bed.jpeg"
@@ -6,11 +6,13 @@ import bed3 from "../3bed.jpeg"
 import Spinner from "./Spinner/Spinner"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
+import axios from "axios"
 
 
 // let arr = [{ price: 543, bedtype: "2 bed" }, { price: 345, bedtype: "1 bed" }, { price: 649, bedtype: "3 bed" }, { price: 450, bedtype: "2 bed" }]
 
 const Rooms = (props) => {
+const [availableRooms , setavailableRooms]=useState([])
 
     console.log(props.availableRooms);
     let roomAvailability
@@ -44,19 +46,17 @@ const Rooms = (props) => {
     }
     return (
             <Fragment>
-                {/* <p style={{ marginTop: "100px", position: "relative", fontWeight: "bold", color: "red", marginLeft: "48%", zindex:"-1"}}>Suits</p> */}
                 {roomAvailability}
                 {/* </div> */}
             </Fragment>
     )
 }
 
-const maptostate=state=>{
-    return{
-        checkin:state.dates.check_in,
-        checkout:state.dates.check_out,
-        people:state.dates.people,
-        availableRooms: state.resvinfo.availableRooms
+const maptostate = state => {
+    return {
+        start:state.dates.check_in,
+        end:state.dates.check_out,
+        people:state.dates.people
     }
 }
 

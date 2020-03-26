@@ -1,20 +1,17 @@
 import React, { Fragment, useState } from "react"
 import "./Room.css"
 import {withRouter} from "react-router-dom"
+import{connect} from "react-redux"
+import {sendingTheFinalRoom, openPayment} from '../Actions/action'
 
 
 const Room=(props)=>{
-    const [roomId,setroomID]= useState(null)
-
-    var checkouthandler=()=>{
-
-        props.history.push({
-            pathname:"/resv",
-            search:`?${props.id}`,
-            
-        })
+    var onClickhandler=()=>{
+        props.gettingFinalRoom(props.id)
+        props.openPayment(true)
+        props.history.push('/resv/payment')
     }
-    
+
     return(
         <Fragment id={props.id}>
         <div className="Room">
@@ -28,15 +25,28 @@ const Room=(props)=>{
             <div className="title">Bed Option</div>
             <div className="bed">{props.bedtype} </div>
             </Fragment>
-            <button onClick={checkouthandler} className="checkout">Checkout</button>
+            <button onClick={onClickhandler} className="checkout">Checkout</button>
         </div>
         </Fragment>
        
     )
 }
 
+const maptostate= state=>{
+    return{
+        checkin:state.dates.check_in,
+        checkout:state.dates.check_out,
+    }
+}
+
+const maptoprops= dispatch=>{
+    return{
+        gettingFinalRoom:(roomNumber)=>dispatch(sendingTheFinalRoom(roomNumber)),
+        openPayment: (cond)=>dispatch(openPayment(cond))
+    }
+}
 
 
 
 
-export default withRouter(Room);
+export default withRouter(connect(maptostate,maptoprops)(Room))

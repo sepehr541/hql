@@ -1,4 +1,3 @@
-import axios from "axios"
 
 export const sending_dates_to_redux = (start, end, people) => {
     return {
@@ -9,10 +8,10 @@ export const sending_dates_to_redux = (start, end, people) => {
     }
 }
 
-export const available_rooms = (list) => {
-    return {
-        type: 'listOfAvailable',
-        list: list
+export const sendingTheFinalRoom=(roomNumber)=>{
+    return{
+        type:'roomNumber',
+        roomNum:roomNumber
     }
 }
 
