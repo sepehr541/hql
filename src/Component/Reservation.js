@@ -21,23 +21,33 @@ class Reservation extends Component {
             <Fragment>
                 <div className="Reservation">
                     <h1>Booking Details</h1>
-                    <form >
-                        <h2>Guest Details</h2>
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name"></input>
-                        <label for="phone">Phone number</label>
-                        <input type="text" id="phone"></input>
-                        <label for="email">Email</label>
-                        <input type="text" id="email"></input>
-                        <label for="confirmEmail">Confirm Email</label>
-                        <input type="text" id="confirmEmail"></input>
-                        <h2>Paymen Details</h2>
-                        <label for="creditCard">Credit Card Number</label>
-                        <input type="text" id="creditCard"></input>
-                        <label for="creditExp">Expiary Date</label>
-                        <input type="text" id="creditExp" maxlength="4"></input>
-                        <label for="creditCvv">CVV</label>
-                        <input type="text" id="creditCVV" maxlength="4"></input>
+                    <form onSubmit={this.onSubmit}>
+                        <div className="row">
+                            <div className="col s6">
+                                <h2>Guest Details</h2>
+                                
+                                <input type="text" id="name"></input>
+                                <label for="name">Full Name</label>
+                                
+                                <input type="text" id="phone"></input>
+                                <label for="phone">Phone number</label>
+                                
+                                <input type="text" id="email"></input>
+                                <label for="email">Email</label>
+                                
+                                <input type="text" id="confirmEmail"></input>
+                                <label for="confirmEmail">Confirm Email</label>
+                            </div>
+                            <div className="col s6"> 
+                                <h2>Paymen Details</h2>
+                                <label for="creditCard">Credit Card Number</label>
+                                <input type="text" id="creditCard"></input>
+                                <label for="creditExp">Expiary Date</label>
+                                <input type="text" id="creditExp" maxlength="4"></input>
+                                <label for="creditCvv">CVV</label>
+                                <input type="text" id="creditCVV" maxlength="4"></input>
+                            </div>
+                        </div>
                     </form>
                 </div>
                 <button className="button" onClick={this.onSubmit}>Confirm your payment</button>
@@ -46,18 +56,11 @@ class Reservation extends Component {
         )
     }
 }
-const maptostate = state => {
+const mapStateToProps = state => {
     return {
         check_in: state.dates.check_in,
         check_out: state.dates.check_out,
-        people: state.dates.people
     }
 }
 
-const maptoprops=dispatch=>{
-    return{
-        SendingFinalResv:(check_in, check_out, people, roomNumber)=>dispatch(finalResv(check_in, check_out, people, roomNumber))
-    }
-}
-
-export default withRouter(connect(maptostate, maptoprops)(Reservation));
+export default connect(mapStateToProps)(Reservation);

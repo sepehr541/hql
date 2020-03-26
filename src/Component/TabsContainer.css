@@ -1,0 +1,24 @@
+#tabsContainer {
+    position: relative;
+    top: 8em;
+}
+
+#tabsList {
+    position: absolute;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#tabs {
+    position: relative;
+    top: 5em;
+}
+#tabsList li {
+    display: inline;
+}
+
+#tabbuttons {
+    margin-top: 30px;
+    float: right;
+}

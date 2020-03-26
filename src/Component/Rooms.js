@@ -27,7 +27,7 @@ const Rooms = (props) => {
 
         setTimeout(() => {
             props.history.push("/")
-        }, 2000);
+        }, 4000);
     }
     if (props.availableRooms && props.availableRooms.length > 0) {
         roomAvailability = props.availableRooms.map(x => (
@@ -44,12 +44,9 @@ const Rooms = (props) => {
     }
     return (
             <Fragment>
-            <span className="datebox">{check_in}-{check_out}</span>
-            <span className="peoplebox">{props.people} Adults</span>
-                <p style={{ pointerEvents:"none",zIndex:"-100", top: "200px",left:"45%", width:"10px" , position: "fixed", fontWeight: "bold", Left: "48%", color:"red" }}>Suits</p>
-                <div className="Rooms">
+                {/* <p style={{ marginTop: "100px", position: "relative", fontWeight: "bold", color: "red", marginLeft: "48%", zindex:"-1"}}>Suits</p> */}
                 {roomAvailability}
-                </div>
+                {/* </div> */}
             </Fragment>
     )
 }

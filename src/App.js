@@ -2,9 +2,8 @@ import React, { Fragment } from 'react';
 import Home from "./Component/Home"
 import About from "./Component/About"
 import Nav from "./Component/Navbar/Navigation"
-import Reservation from "./Component/Reservation"
-import { BrowserRouter, Route, Switch} from "react-router-dom"
-import Rooms from "./Component/Rooms"
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import TabsContainer from './Component/TabsContainer'
 import "./Component/video.css"
 
 
@@ -13,11 +12,10 @@ function App() {
     <BrowserRouter>
       <Fragment>
         <Nav />
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Home} />
         <Switch>
-        <Route path="/Rooms" component={Rooms}/>
-        <Route path="/about" component={About}/>
-          <Route path="/resv" component={Reservation}/>
+          <Route path="/about" component={About} />
+          <Route path="/resv" component={TabsContainer} />
         </Switch>
       </Fragment>
     </BrowserRouter>
