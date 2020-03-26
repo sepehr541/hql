@@ -80,9 +80,10 @@ class Reservation extends Component {
     render() {
         return (
             <Fragment>
+                                    <Modal/>
+
                 <div className="Reservation">
                     <h1>Booking Details</h1>
-                    <Modal/>
                     <form>
                         <div className="row">
                             <div className="col s6">

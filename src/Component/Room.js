@@ -14,10 +14,9 @@ const Room=(props)=>{
 
     return(
         <Fragment key={props.id}>
-            <div>   
-              <img src={props.source} alt ="" className="pic" />
-            </div>
+            
         <div id={props.id} className="Room">
+        <img src={props.source} alt ="" className="pic" />
             <header  className="type" >Room is available</header>
             <span className="from">From
                 <span style={{position:"relative", right:"-20px"}}>{props.price} $</span>

@@ -26,7 +26,8 @@ var dateFormatter = (date) => {
     return
 }
 
-let notRun=useRef(true)
+// let notRun=useRef(true)
+
 useEffect(()=>{
     var gettingRooms=async()=>{
         console.log('noooo')
@@ -40,11 +41,13 @@ useEffect(()=>{
     // eslint-disable-next-line
 },[props.start,props.end,props.people])
 
-let roomAvailability
-      if(notRun.current){
-            notRun.current=false
-            return null
-        }else{
+
+let roomAvailability=null
+
+    //   if(notRun.current){
+    //         notRun.current=false
+    //         return null
+    //     }else{
             if (availableRooms.length===0) {
                 roomAvailability = (
                     <Fragment>
@@ -61,10 +64,11 @@ let roomAvailability
                 //     props.history.replace("/")
                 // }, 4000);
             }
-        }
+        // }
 
   
     if (availableRooms && availableRooms.length > 0) {
+        console.log(availableRooms)
         roomAvailability = availableRooms.map(x => (
             <Room key={x.roomnumber}  id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
         }
