@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect, useRef } from "react"
+import React, { Fragment, useState, useEffect} from "react"
 import Room from "./Room"
 import "./Rooms.css"
 import bed from "../2bed.jpeg"
@@ -52,10 +52,11 @@ const Rooms = (props) => {
     }
 
     if (availableRooms && availableRooms.length > 0) {
+        console.log(availableRooms)
         roomAvailability = availableRooms.map(x => (
             <Room key={x.roomnumber} id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
     }
-    
+
     return (
         <div className="Rooms">
             <Fragment>
