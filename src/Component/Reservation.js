@@ -1,10 +1,80 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux"
 import './Reservation.css'
+import axios from 'axios'
+import Modal from './Modal/Modal'
 class Reservation extends Component {
+    // const [name ,setName]=useState('')
+    // const [phoneNum , setPhoneNum]=useState(null)
+    // const [email , setEmail]=useState(null)
+   state={
+       name:null,
+       phone:null,
+       email:null,
+       confirmEmail:null
+   }
 
-    onSubmit = (event) => {
-        event.preventDefault();
+
+
+   gettingname=(e)=>{
+       this.setState(({
+           name:e.target.value
+       }))
+   }
+
+   gettingPhone=(e)=>{
+       console.log(e.target.value)
+       this.setState(({
+           phone:e.target.value
+       }))
+   }
+       
+   gettingEmail=(e)=>{
+       console.log(e.target.value)
+       this.setState(({
+           email:e.target.value
+       }))
+
+   } 
+
+   gettingconfirmedEmail=(e)=>{
+       console.log(e.target.value)
+       this.setState(({
+           confirmEmail:e.target.value
+       }))
+   }
+
+    dateFormatter = (date) => {
+    if(date){
+        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+    }
+    return
+}
+
+
+    gettingPersonalInfo=()=>{
+        if(!this.state.name || !this.state.phone || !this.state.email){
+            return alert('please check your input to make sure they are correct ')
+        }
+        console.log(this.state.email)
+        console.log(this.state.confirmEmail)
+        
+        if(this.state.email!==this.state.confirmEmail)return alert('Your emails dont match')
+        //im gonna send as an object but if u want u can put it the url , i figured the url would be too long so this way it would look better
+
+        let obj={
+            start:this.props.start, 
+            end:this.props.end, 
+            people:this.props.people,
+            roomid:this.props.roomNum, 
+            name:this.state.name, 
+            phone:this.state.phone,
+            emial:this.state.email
+          }
+          console.log(obj)
+        axios.post(`http://localhost:9000/resconf`,obj)
+        .then(resp=>console.log('dasd'))
+
     }
 
     render() {
@@ -12,22 +82,27 @@ class Reservation extends Component {
             <Fragment>
                 <div className="Reservation">
                     <h1>Booking Details</h1>
-                    <form onSubmit={this.onSubmit}>
+                    <Modal/>
+                    <form>
                         <div className="row">
                             <div className="col s6">
-                                <h2>Guest Details</h2>
-                                
-                                <input type="text" id="name"></input>
-                                <label htmlFor="name">Full Name</label>
-                                
-                                <input type="text" id="phone"></input>
+                            <h2 style={{fontWeight:'bold', fontSize:'large'}}>Guest Details</h2>
+
+
+                                <input onChange={(e)=>this.gettingname(e)} type="text" id="name"></input>
+                                <label style={{top:'20px'}} htmlFor="name">Full Name</label>
+
+
+                                <input type='text' onChange={(e)=>this.gettingPhone(e)} maxLength='11'  id="phone"></input>
+                          
+
                                 <label htmlFor="phone">Phone number</label>
                                 
-                                <input type="text" id="email"></input>
+                                <input pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' onChange={(e)=>this.gettingEmail(e)} type="text" id="email"></input>
                                 <label htmlFor="email">Email</label>
                                 
-                                <input type="text" id="confirmEmail"></input>
-                                <label htmlFor="confirmEmail">Confirm Email</label>
+                                <input onChange={(e)=>this.gettingconfirmedEmail(e)} pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' type="text" id="confirmEmail"></input>
+                                <label  htmlFor="confirmEmail">Confirm Email</label>
                             </div>
                             <div className="col s6"> 
                                 <h2>Paymen Details</h2>
@@ -40,6 +115,7 @@ class Reservation extends Component {
                             </div>
                         </div>
                     </form>
+                    <button className='submit' onClick={this.gettingPersonalInfo}>Submit your payment</button>
                 </div>
             </Fragment>
         )
@@ -47,9 +123,13 @@ class Reservation extends Component {
 }
 const mapStateToProps = state => {
     return {
-        check_in: state.dates.check_in,
-        check_out: state.dates.check_out,
+        start: state.dates.check_in,
+        end: state.dates.check_out,
+        people:state.dates.people,
+        roomNum:state.dates.roomNumber
     }
 }
+
+
 
 export default connect(mapStateToProps)(Reservation);

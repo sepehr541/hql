@@ -4,12 +4,14 @@ const initialstate={
    check_out:null,
    people:null,
    roomNumber:null,
-   openPayment:false
+   openPayment:false,
+   
 }
 
 
 const reducer = (state = initialstate, action) => {
     if (action.type === "dates") {
+        
         return{
             ...state,
             check_in:action.start,
