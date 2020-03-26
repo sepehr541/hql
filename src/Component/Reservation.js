@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { connect } from "react-redux"
 import './Reservation.css'
 import axios from 'axios'
-import Modal from './Modal/Modal'
+// import Modal from './Modal/Modal'
 class Reservation extends Component {
     // const [name ,setName]=useState('')
     // const [phoneNum , setPhoneNum]=useState(null)
@@ -82,7 +82,7 @@ class Reservation extends Component {
             <Fragment>
                 <div className="Reservation">
                     <h1>Booking Details</h1>
-                    <Modal/>
+                    {/* <Modal/> */}
                     <form>
                         <div className="row">
                             <div className="col s6">
