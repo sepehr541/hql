@@ -13,4 +13,9 @@
 .Reservation h1 {
     font-size: large;
 }
+.submit{
+    left: 80%;
+    position: relative;
+
+}
 

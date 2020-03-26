@@ -15,7 +15,9 @@ import { openPayment } from '../Actions/action'
 // }
 const TabsContainer = (props) => {
     // const [activeTab, setTab] = useState(TABS.ROOMS);
-
+    // const [name ,setName]=useState('')
+    // const [phoneNum , setPhoneNum]=useState(null)
+    // const [email , setEmail]=useState(null)
 
     let check_in
     let check_out
@@ -24,6 +26,8 @@ const TabsContainer = (props) => {
          check_in= props.checkin.toString().slice(4,15);
          check_out=props.checkout.toString().slice(4,15)
     }
+
+
     return (
         <Fragment>
             {check_in ? 
@@ -40,7 +44,6 @@ const TabsContainer = (props) => {
                     {!props.openPay ? <Rooms /> : <Reservation />}
                 </div>
                 <div id="tabbuttons">
-                    {props.openPay ? <button> Submit your payment</button>: null}
                 </div>
             </div>
         </Fragment>

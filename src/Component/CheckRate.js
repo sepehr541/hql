@@ -3,7 +3,7 @@ import "./Checkrate.css"
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import { connect } from "react-redux"
-import { sending_dates_to_redux } from "../Actions/action"
+import { sending_dates_to_redux , openPayment} from "../Actions/action"
 import { withRouter } from 'react-router-dom'
 import 'react-dates/initialize'
 import './react_dates_overrides.css';
@@ -29,6 +29,7 @@ class CheckRate extends Component {
         if (!this.state.startDate || !this.state.endDate || !this.state.people) {
             alert("Please fill the required forms in order to continue");
         } else {
+            this.props.openPayment(false)
             this.props.send_dates(this.state.startDate._d, this.state.endDate._d, this.state.people)
             this.props.history.push("/resv")
         }
@@ -73,12 +74,15 @@ class CheckRate extends Component {
 const maptostate = state => {
     return {
         checkin: state.dates.check_in,
-        checkout: state.dates.check_out
+        checkout: state.dates.check_out,
+        
     }
 }
 const maptoprops = dispatch => {
     return {
         send_dates: (start, end, people) => dispatch(sending_dates_to_redux(start, end, people)),
+        openPayment:(cond)=>dispatch(openPayment(cond))
+
     }
 }
 
