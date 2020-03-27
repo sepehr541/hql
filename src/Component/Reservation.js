@@ -40,6 +40,7 @@ class Reservation extends Component {
    } 
 
    gettingconfirmedEmail=(e)=>{
+       
        console.log(e.target.value)
        this.setState(({
            confirmEmail:e.target.value
