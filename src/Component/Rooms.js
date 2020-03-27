@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect} from "react"
+import React, { Fragment, useState, useEffect } from "react"
 import Room from "./Room"
 import "./Rooms.css"
 import bed from "../2bed.jpeg"
@@ -14,41 +14,70 @@ import axios from "axios"
 const Rooms = (props) => {
 const [availableRooms , setavailableRooms]=useState([])
 
-    console.log(props.availableRooms);
-    let roomAvailability
-    if (props.availableRooms && props.availableRooms.length === 0) {
-        roomAvailability = (
-            <Fragment>
-                <div>
-                    <Spinner />
-                </div>
-                <div className="empty" >
-                    You are being redirected to the main page because there is no room available to math your request
-                </div>
-            </Fragment>)
 
-        setTimeout(() => {
-            props.history.push("/")
-        }, 4000);
+
+/**
+ * Formats date
+ */
+var dateFormatter = (date) => {
+    if(date){
+        return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
     }
-    if (props.availableRooms && props.availableRooms.length > 0) {
-        roomAvailability = props.availableRooms.map(x => (
-            <Room id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
-    } else if (!props.availableRooms) {
-        roomAvailability = <div className="error"> Sorry there is no room available to match your request </div>
+    return
+}
+
+
+useEffect(()=>{
+    var gettingRooms=async()=>{
+        if(!props.start || !props.end||!props.people) return alert ('one of the required fill is empty')
+        console.log('noooo')
+       const resp= await axios.post(`http://localhost:9000/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
+       const resp1=await resp.data
+       setavailableRooms(resp1)
     }
-    //these are for the boxes when you ca nsee for how many people and the date you chose
-    let check_in
-    let check_out
-    if(props.checkin){
-         check_in= props.checkin.toString().slice(4,15);
-         check_out=props.checkout.toString().slice(4,15)
-    }
+    gettingRooms()
+
+
+    // eslint-disable-next-line
+},[props.start,props.end,props.people])
+
+
+let roomAvailability=null
+
+    //   if(notRun.current){
+    //         notRun.current=false
+    //         return null
+    //     }else{
+            if (availableRooms.length===0) {
+                roomAvailability = (
+                    <Fragment>
+                        <div>
+                            <Spinner />
+                        </div>
+                        <div className="empty" >
+                            You are being redirected to the main page because there is no room available to math your request
+                        </div>
+                    </Fragment>)
+            
+                // setTimeout(() => {
+        
+                //     props.history.replace("/")
+                // }, 4000);
+            }
+        // }
+
+  
+    if (availableRooms && availableRooms.length > 0) {
+        console.log(availableRooms)
+        roomAvailability = availableRooms.map(x => (
+            <Room key={x.roomnumber}  id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
+        }
     return (
+        <div className="Rooms">
             <Fragment>
                 {roomAvailability}
-                {/* </div> */}
             </Fragment>
+        </div>
     )
 }
 

@@ -19,25 +19,3 @@
 
 }
 
-
-.button{
-    position: fixed;
-    left: 42%;
-    top: 93%;
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: underline;
-    background: black;
-    padding: 20px;
-    border-radius: 50px;
-    display: inline-block;
-    border: none;
-    transition: all 0.4s ease 0s;
-}
-/* 
-.button:hover{
-text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
--moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-transition: all 1s ease 0s;
-} */

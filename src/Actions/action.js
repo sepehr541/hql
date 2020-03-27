@@ -15,31 +15,20 @@ export const sendingTheFinalRoom=(roomNumber)=>{
     }
 }
 
-export const gettingdate = (start, end, people) => {
-    return dispatch => {
-        dispatch(sending_dates_to_redux(start, end, people))
-        axios.get(`http://localhost:9000/api/rooms?start=${dateFormatter(start)}&end=${dateFormatter(end)}&people=${people}`)
-            .then(resp => {
-                let available = resp.data;
-                console.log(available);
-                dispatch(available_rooms(available));
-            }).catch(e => {
-                console.log(e);
-            })
+export const openPayment=(cond)=>{
+    return{
+        type:'openPayment',
+        cond:cond
     }
 }
 
-export const finalResv=(start,end,people,roomid)=>{
-    let obj={start:start, end:end, people:people , roomid:roomid}
-    return dispatch=>{
-        axios.post(`http://localhost:9000/confirmed`,obj)
-        .then(resp=>console.log(resp))
-    }
-}
+export const gettingPersInfo=(name , phone , email)=>{
+console.log(name)
+    return {
+        type:'personal',
+        phone:phone,
+        name:name,
+        email:email
 
-/**
- * Formats date
- */
-const dateFormatter = (date) => {
-    return `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+    }
 }

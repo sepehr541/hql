@@ -1,6 +1,6 @@
 
 .error{
-    position: fixed;
+    position: relative;
     border:5px solid dimgray;
     font-size: large;
     background-color: black;

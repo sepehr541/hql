@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment } from "react"
 import "./Room.css"
 import {withRouter} from "react-router-dom"
 import{connect} from "react-redux"
@@ -13,9 +13,10 @@ const Room=(props)=>{
     }
 
     return(
-        <Fragment id={props.id}>
-        <div className="Room">
-        <img src={props.source} alt ="" className="pic" />    
+        <Fragment key={props.id}>
+            
+        <div id={props.id} className="Room">
+        <img src={props.source} alt ="" className="pic" />
             <header  className="type" >Room is available</header>
             <span className="from">From
                 <span style={{position:"relative", right:"-20px"}}>{props.price} $</span>
