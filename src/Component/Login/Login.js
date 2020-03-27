@@ -7,7 +7,8 @@ const Login = (props) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.post('http://localhost:9000/api/login', {username: user, password: pass});
+        const response = await axios.post('http://localhost:9000/api/login', {username: user, password: pass});
+        console.log(response.data);
     }
 
     return (
