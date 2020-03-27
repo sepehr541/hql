@@ -5,6 +5,8 @@ import Nav from "./Component/Navbar/Navigation"
 import { BrowserRouter, Route, Switch } from "react-router-dom"
 import TabsContainer from './Component/TabsContainer'
 import Login from './Component/Login/Login'
+import Dashboard from './Component/Login/Dashboard'
+import Table from './Component/Login/Table'
 import "./Component/video.css"
 
 
@@ -18,6 +20,8 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/resv" component={TabsContainer} />
           <Route path="/login" component={Login} />
+          <Route exact path='/dashboard' component={Dashboard} />
+          <Route path='/dashboard/:data' component={Table} />
         </Switch>
       </Fragment>
     </BrowserRouter>

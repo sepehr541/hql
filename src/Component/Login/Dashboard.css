@@ -1,0 +1,13 @@
+#dashboard {
+    position: relative;
+    top: 200px;
+}
+
+#dashboard .card-content {
+    position: relative !important;
+    top: 50px;
+}
+
+#dashboard .card {
+    cursor: pointer;
+}
