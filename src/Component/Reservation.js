@@ -5,9 +5,7 @@ import axios from 'axios'
 import Modal from './Modal/Modal'
 import { withRouter } from 'react-router-dom'
 class Reservation extends Component {
-    // const [name ,setName]=useState('')
-    // const [phoneNum , setPhoneNum]=useState(null)
-    // const [email , setEmail]=useState(null)
+
     state = {
         name: null,
         phone: null,
@@ -16,34 +14,11 @@ class Reservation extends Component {
         Modal: false
     }
 
-
-
-    gettingname = (e) => {
+    onChange = (e) => {
         this.setState(({
-            name: e.target.value
-        }))
-    }
-
-    gettingPhone = (e) => {
-        console.log(e.target.value)
-        this.setState(({
-            phone: e.target.value
-        }))
-    }
-
-    gettingEmail = (e) => {
-        console.log(e.target.value)
-        this.setState(({
-            email: e.target.value
+            [e.target.id]: e.target.value
         }))
 
-    }
-
-    gettingconfirmedEmail = (e) => {
-        console.log(e.target.value)
-        this.setState(({
-            confirmEmail: e.target.value
-        }))
     }
 
     dateFormatter = (date) => {
@@ -71,20 +46,17 @@ class Reservation extends Component {
             roomid: this.props.roomNum,
             name: this.state.name,
             phone: this.state.phone,
-            emial: this.state.email
+            email: this.state.email
         }
         console.log(obj)
         axios.post(`http://localhost:9000/Reservation`, obj)
-            .then(resp => { console.log(resp.dates) })
+            .then(resp => { console.log(resp.data) })
 
         //  setTimeout(() => {
         //      this.closeModal()
         //      this.props.history.push('/')
         //  }, 2000);
     }
-
-
-
 
 
     openModal = () => {
@@ -101,10 +73,11 @@ class Reservation extends Component {
     }
 
     render() {
+        console.log(this.state);
         return (
             <Fragment>
                 {this.state.Modal ?
-                    <Modal style={{ top: '300px' }} show={this.state.Modal} close={this.closeModal}  >Your reservation is beiong confirmed once its confirmed you will be redirected to the main page</Modal> : null}
+                    <Modal show={this.state.Modal}  >Your reservation is beiong confirmed once its confirmed you will be redirected to the main page</Modal> : null}
                 <div className="Reservation">
                     <h1>Booking Details</h1>
                     <form>
@@ -112,20 +85,16 @@ class Reservation extends Component {
                             <div className="col s6">
                                 <h2 style={{ fontWeight: 'bold', fontSize: 'large' }}>Guest Details</h2>
 
-
-                                <input onChange={(e) => this.gettingname(e)} type="text" id="name"></input>
+                                <input onChange={this.onChange} type="text" id="name"></input>
                                 <label style={{ top: '20px' }} htmlFor="name">Full Name</label>
 
-
-                                <input type='text' onChange={(e) => this.gettingPhone(e)} maxLength='11' id="phone"></input>
-
-
+                                <input type='text' onChange={this.onChange} maxLength='11' id="phone"></input>
                                 <label htmlFor="phone">Phone number</label>
 
-                                <input pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' onChange={(e) => this.gettingEmail(e)} type="text" id="email"></input>
+                                <input pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' onChange={this.onChange} type="text" id="email"></input>
                                 <label htmlFor="email">Email</label>
 
-                                <input onChange={(e) => this.gettingconfirmedEmail(e)} pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' type="text" id="confirmEmail"></input>
+                                <input onChange={this.onChange} pattern='^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$' type="text" id="confirmEmail"></input>
                                 <label htmlFor="confirmEmail">Confirm Email</label>
                             </div>
                             <div className="col s6">
@@ -146,6 +115,7 @@ class Reservation extends Component {
         )
     }
 }
+
 const mapStateToProps = state => {
     return {
         start: state.dates.check_in,

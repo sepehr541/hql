@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect} from "react"
+import React, { Fragment, useState, useEffect } from "react"
 import Room from "./Room"
 import "./Rooms.css"
 import bed from "../2bed.jpeg"
@@ -12,18 +12,17 @@ import axios from "axios"
 // let arr = [{ price: 543, bedtype: "2 bed" }, { price: 345, bedtype: "1 bed" }, { price: 649, bedtype: "3 bed" }, { price: 450, bedtype: "2 bed" }]
 
 const Rooms = (props) => {
-    // internal state to store rooms
     const [availableRooms, setavailableRooms] = useState([])
+
     /**
-     * Hepler function: Formats date
+     * Formats date
      */
     var dateFormatter = (date) => {
         if (date) {
-            return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+            return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
         }
-        return;
+        return
     }
-
     // runs when mounting or change of any of props.start, props.end, props.people
     useEffect(() => {
         console.log('effect ran');
