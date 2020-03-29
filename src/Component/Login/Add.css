@@ -1,0 +1,11 @@
+#dashboardAdd {
+    margin-top: 100px;
+}
+
+#MainFormAdd {
+    margin-top: 100px;
+}
+
+#employeeField, #roomField, #eventField {
+    display: none;
+}

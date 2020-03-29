@@ -3,7 +3,7 @@ import "./Nav.css"
 import Checkrate from "../CheckRate"
 import { NavLink } from 'react-router-dom'
 import "../video.css"
-
+import Logo from '../../Logo.png'
 const Nav = (props) => {
     const [rate, setrate] = useState(false)
 
@@ -27,6 +27,8 @@ const Nav = (props) => {
                 <header className="Nav">
                     <NavLink onClick={() => hideCheckBar()} to="/resv">Make a booking</NavLink>
                     <NavLink to="/about">About Us</NavLink>
+                    <NavLink to='/' ><img src={Logo} id='logo'></img></NavLink>
+                    <NavLink to='/login'>Login</NavLink>
                     <button onClick={() => setCheckBarVisibility()} className="btn"> Check your rate </button>
                 </header>
                 <Checkrate showCheck={true} />

@@ -9,6 +9,7 @@
     "axios": "^0.19.2",
     "eslint-plugin-flowtype": "^3.13.0",
     "intl-tel-input": "^16.0.11",
+    "materialize-css": "^1.0.0-rc.2",
     "nodemon": "^2.0.2",
     "query-string": "^6.11.1",
     "react": "^16.12.0",
