@@ -48,6 +48,7 @@ const Table = (props) => {
 
     //show add button or not
     let add = false;
+    let back = false;
     
     // conditions to choose render's content
     if (loading) {
@@ -66,6 +67,7 @@ const Table = (props) => {
                 </div>
             )
         } else if (data.length === 0) {
+            back = true;
             add = true;
             render = (
                 <div id='emptyTable' className='center'>
@@ -74,6 +76,7 @@ const Table = (props) => {
                 </div>
             )
         } else {
+            back = true;
             add = true;
             // make table header from the keys of data
             const header = (
@@ -98,9 +101,9 @@ const Table = (props) => {
     return (
         <div id='renderContainer' className='container center preload'>
             <div id='tableActionButtons' className='row'>
-                <button className='btn col s2 ' onClick={() => history.push('/dashboard')}>
+                {back? <button className='btn col s2 ' onClick={() => history.push('/dashboard')}>
                     <i className='small material-icons'>arrow_back</i>
-                </button>
+                </button> : null}
                 {add ? <button className='btn col s2 push-s8' onClick={() => history.push('/dashboard/add')}>Add</button> : null}
             </div>
             {render}

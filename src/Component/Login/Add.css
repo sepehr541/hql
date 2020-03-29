@@ -9,3 +9,13 @@
 #employeeField, #roomField, #eventField {
     display: none;
 }
+
+#authFailed {
+    margin-top: 100px;
+}
+
+#addSpinner {
+    margin-top: 300px;
+    margin-left: 460px;
+    width: 300px;
+}
