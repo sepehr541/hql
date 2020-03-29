@@ -18,7 +18,7 @@ const reducer =(state=initialstate, action)=>{
             email:action.email,
             phone:action.phone,
             start:action.start,
-            end:action.emd,
+            end:action.end,
             price:action.price,
             resevID:action.resevID
         }

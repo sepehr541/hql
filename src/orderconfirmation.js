@@ -19,14 +19,15 @@ var sendingToBack=async()=>{
     console.log(orderconf)
     const resp= await Axios.post('http://localhost:9000/api/orderconf',{orderNum:orderconf})
     const results=await resp.data
-    console.log(results)
-    const name=await results.name
-    const phone= await results.phone
-    const email= await results.email
-    const start = await results.startdate
-    const end = await results.enddate
-    const price= await results.price
-    const resevID= await results.reservationid
+    let result=results[0]
+    console.log(result)
+    const name=await result.name
+    const phone= await result.phone
+    const email= await result.email
+    const start = await result.startdate
+    const end = await result.enddate
+    const price= await result.price
+    const resevID= await result.reservationid
     props.gettingTheResults(name,phone,email,start,end,price,resevID)    
     props.history.push(`/orderconfirmation/${orderconf}`)
 
