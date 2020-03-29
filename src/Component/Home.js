@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import "./video.css"
 // import Video from "../../src/vancouver.mp4"
 import van from './PosterPic.jpg'
-import Search from './OrderConfirmation/orderconfirmation'
+import Search from '../orderconfirmation'
 import toronto from './picfororder.jpg'
 
 const Home = (props) => {

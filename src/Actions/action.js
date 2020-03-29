@@ -33,9 +33,17 @@ console.log(name)
     }
 }
 
-export const SendingOrderResultsToRedux=(results)=>{
+export const SendingOrderResultsToRedux=(name , phone ,email,start,end, price,resevID)=>{
+    console.log(name)
     return{
         type:'orderconf',
-        results:results
+        name:name,
+        phone:phone,
+        email:email,
+        start:start,
+        end:end,
+        price:price,
+        resevID:resevID
+    
     }
 }
