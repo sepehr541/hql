@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import M from 'materialize-css';
 import axios from 'axios'
-import { servicesVersion } from 'typescript';
 
 export const AddEmployee = (props) => {
     const nameInput = useRef();

@@ -27,7 +27,7 @@ const Nav = (props) => {
                 <header className="Nav">
                     <NavLink onClick={() => hideCheckBar()} to="/resv">Make a booking</NavLink>
                     <NavLink to="/about">About Us</NavLink>
-                    <NavLink to='/' ><img src={Logo} id='logo'></img></NavLink>
+                    <NavLink to='/' ><img src={Logo} id='logo' alt='logo'></img></NavLink>
                     <NavLink to='/login'>Login</NavLink>
                     <button onClick={() => setCheckBarVisibility()} className="btn"> Check your rate </button>
                 </header>
