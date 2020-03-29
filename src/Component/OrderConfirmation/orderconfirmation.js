@@ -26,7 +26,7 @@ var sendingToBack=async()=>{
 
     return(
         <Fragment>
-            <div className="container">
+            <div className="amir">
                  <input onChange={(e)=>gettingOrderConf(e)} type="text" placeholder="Order Confirmation..." />
                  <div className="search"></div>
                  <button className='button' style={{top:'100px' ,position:'relative', left:'30px'}} onClick={sendingToBack}>press to see your order</button>

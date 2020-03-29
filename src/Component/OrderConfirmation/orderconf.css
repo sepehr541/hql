@@ -12,7 +12,7 @@ html, body {
 }
 
 
-.container {
+.amir {
   position: relative;
   /* margin: auto; */
   top: 60px;
@@ -22,7 +22,7 @@ html, body {
   width: 300px;
   height: 100px;
 }
-.container .search {
+.amir .search {
   position: absolute;
   margin: auto;
   top: -90px;
@@ -37,10 +37,10 @@ html, body {
   z-index: 4;
   box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
 }
-.container .search:hover {
+.amir .search:hover {
   cursor: pointer;
 }
-.container .search::before {
+.amir .search::before {
   content: "";
   position: absolute;
   margin: auto;
@@ -54,7 +54,7 @@ html, body {
   transform: rotate(45deg);
   transition: all .5s;
 }
-.container .search::after {
+.amir .search::after {
   content: "";
   position: absolute;
   margin: auto;
@@ -68,7 +68,7 @@ html, body {
   border: 2px solid white;
   transition: all .5s;
 }
-.container input {
+.amir input {
   font-family: 'Inconsolata', monospace;
   position: absolute;
   margin: auto;
@@ -92,25 +92,25 @@ html, body {
   font-weight: bolder;
   letter-spacing: 0.1em;
 }
-.container input:hover {
+.amir input:hover {
   cursor: pointer;
 }
-.container input:focus {
+.amir input:focus {
   width: 300px;
   opacity: 1;
   cursor: text;
 }
-.container input:focus ~ .search {
+.amir input:focus ~ .search {
   right: -250px;
   background: #151515;
   z-index: 6;
 }
-.container input:focus ~ .search::before {
+.amir input:focus ~ .search::before {
   top: 0;
   left: 0;
   width: 25px;
 }
-.container input:focus ~ .search::after {
+.amir input:focus ~ .search::after {
   top: 0;
   left: 0;
   width: 25px;
@@ -120,7 +120,7 @@ html, body {
   border-radius: 0%;
   transform: rotate(-45deg);
 }
-.container input::placeholder {
+.amir input::placeholder {
   color: black;
   opacity: 1;
   font-weight: bolder;
