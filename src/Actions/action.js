@@ -32,3 +32,10 @@ console.log(name)
 
     }
 }
+
+export const SendingOrderResultsToRedux=(results)=>{
+    return{
+        type:'orderconf',
+        results:results
+    }
+}
