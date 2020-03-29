@@ -26,7 +26,7 @@ const Home = (props) => {
       </div>
       <div className='striped-border'/>
       <div>
-      <header  style={{position:'relative' , top:'450px', fontWeight:'bold' , fontSize:'large' , left:'33%'}}>Please type down your order confirmation  number to see your reservation </header>
+      <h2  style={{position:'absolute' , top:'910px', fontWeight:'bold' , fontSize:'large' , left:'33%'}}>Please type down your order confirmation  number to see your reservation </h2>
       <img style={{position:'relative' ,top:'480px', left:'20px'}} src={toronto} width="500px" height="600px" alt=""/>
         <Search/>
      

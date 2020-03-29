@@ -9,8 +9,8 @@ import Dashboard from './Component/Login/Dashboard'
 import Table from './Component/Login/Table'
 import Add from './Component/Login/Add'
 import "./Component/video.css"
-import orderconfirmation from './Component/orderconf'
-
+import Orderconfirmation from './Component/orderconf'
+import Footer from './Component/footer'
 
 function App() {
   return (
@@ -25,8 +25,9 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/dashboard/add' component={Add} />
           <Route path='/dashboard/:data' component={Table} />
-          <Route path='/orderconfirmation' component={orderconfirmation}/>
+          <Route path='/orderconfirmation' component={Orderconfirmation}/>
         </Switch>
+        <Footer/>
       </Fragment>
     </BrowserRouter>
   );
