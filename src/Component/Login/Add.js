@@ -22,7 +22,7 @@ const Add = (props) => {
     useEffect(() => {
         // initalizes the select fields
         var elems = document.querySelectorAll('select');
-        var instances = M.FormSelect.init(elems, {});
+        M.FormSelect.init(elems, {});
     }, [])
 
     return (
