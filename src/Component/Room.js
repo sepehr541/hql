@@ -18,9 +18,7 @@ const Room=(props)=>{
         <div id={props.id} className="Room">
         <img src={props.source} alt ="" className="pic" />
             <header  className="type" >Room is available</header>
-            <span className="from">From
-                <span style={{position:"relative", right:"-20px"}}>{props.price} $</span>
-           </span>
+            <span className="from">From : {props.price}/pernight</span>
 
             <Fragment>
             <div className="title">Bed Option</div>

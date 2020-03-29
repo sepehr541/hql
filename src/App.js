@@ -9,6 +9,7 @@ import Dashboard from './Component/Login/Dashboard'
 import Table from './Component/Login/Table'
 import Add from './Component/Login/Add'
 import "./Component/video.css"
+import orderconfirmation from './Component/orderconf'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/dashboard/add' component={Add} />
           <Route path='/dashboard/:data' component={Table} />
+          <Route path='/orderconfirmation' component={orderconfirmation}/>
         </Switch>
       </Fragment>
     </BrowserRouter>

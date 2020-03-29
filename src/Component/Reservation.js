@@ -29,6 +29,17 @@ class Reservation extends Component {
     }
 
 
+    gettingTotalPrice=(p)=>{
+       let lengthOfStay = (this.props.end.getTime() - this.props.start.getTime())/(1000*60*60*24)
+       let people=parseInt(p)
+       if(people===1) return lengthOfStay*300
+       if(people===2)return lengthOfStay*450
+       if(people===3)return lengthOfStay*600
+
+
+    }
+
+
     gettingPersonalInfo = () => {
         if (!this.state.name || !this.state.phone || !this.state.email) {
             return alert('please check your input to make sure they are correct ')
@@ -42,11 +53,12 @@ class Reservation extends Component {
         let obj = {
             start: this.props.start,
             end: this.props.end,
-            people: this.props.people,
+            people: parseInt( this.props.people),
             roomid: this.props.roomNum,
             name: this.state.name,
             phone: this.state.phone,
-            email: this.state.email
+            email: this.state.email,
+            totalPrice:this.gettingTotalPrice(this.props.people)
         }
         console.log(obj)
         axios.post(`http://localhost:9000/Reservation`, obj)
