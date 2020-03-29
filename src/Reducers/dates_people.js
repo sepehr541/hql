@@ -5,7 +5,7 @@ const initialstate={
    people:null,
    roomNumber:null,
    openPayment:false,
-   
+   price:null
 }
 
 

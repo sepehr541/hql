@@ -18,4 +18,10 @@
 
 }
 
+.striped-border {
+    position: relative;
+    border: 1px solid  black;
+    top:400px
+}
+
 
