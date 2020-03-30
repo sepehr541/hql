@@ -3,3 +3,17 @@
     padding-top: 20em;
     padding-left: 450px;
 }
+
+.forgot{
+    position: relative;
+    left: -240px;
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+.forgot:hover{
+    color: teal;
+}
