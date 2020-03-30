@@ -11,6 +11,31 @@ const Add = (props) => {
     // ref for tracking and display
     const currCat = useRef(null);
     const prevCat = useRef(null);
+//     const [auth , setauth]=useState(false)
+
+//     let url = 'http://localhost:9000/api/restricted'
+
+
+//     useEffect(()=>{
+//         const authAdd=async()=>{
+//             let token=localStorage.getItem('token')
+//             try{
+//                  await Axios.post(url,{
+//                     headers: {
+//                         'Authorization': `Bearer ${token}`
+//                     }
+//                 })
+//                 setauth(true)
+//             }catch(e){
+//                 if(e.response.status===403){
+//                     console.log("This user is not authorized")
+//                 }
+//             }
+//         }
+//         authAdd()
+// // eslint-disable-next-line
+//     },[])
+
 
     // state management
     const auth = useRef(false);

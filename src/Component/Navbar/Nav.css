@@ -16,4 +16,47 @@
 #logo {
   width: 70px;
   height: 70px;
+  left: 50%;
+  top: -6px;
+  position: absolute;
+}
+
+
+.mainmenubtn {
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding:10px;
+  top:23px;
+  position: relative;
+  right: 20px;
+}
+.mainmenubtn:hover {
+  background-color: #26a69a;
+  }
+.dropdown {
+  position: absolute;
+  display: inline-block;
+  top:-10px;
+  height: 30px;
+  left:70%
+}
+.dropdown-child {
+  display: none;
+  background-color: black;
+  width: 127px;
+  top: 24px;
+  position: relative;
+  right: 29px;
+  transition: ease-in-out 0.8s;
+}
+.dropdown-child a {
+  color: white;
+  padding: 20px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown:hover .dropdown-child {
+  display: block;
 }

@@ -86,7 +86,7 @@ const Table = (props) => {
 
             render = (
                 <div id='table'>
-                    <table className='highlight'>
+                    <table  className='highlight'>
                         <thead>{header}</thead>
                         <tbody>{rows}</tbody>
                     </table>

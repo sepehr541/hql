@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import Home from "./Component/Home"
 import About from "./Component/About"
 import Nav from "./Component/Navbar/Navigation"
@@ -13,8 +13,15 @@ import Stats from './Component/Login/Stats';
 import "./Component/video.css"
 import Orderconfirmation from './Component/orderconf'
 import Footer from './Component/footer'
+import {connect} from 'react-redux'
+import {keeplogIn} from '../src/Actions/action'
+const App=(props)=> {
 
-function App() {
+
+  useEffect(()=>{
+    props.checkAuth()
+    //eslint-disable-next-line
+  },[])
   return (
     <BrowserRouter>
       <Fragment>
@@ -37,4 +44,10 @@ function App() {
   );
 }
 
-export default App;
+const maptoprops=dispatch=>{
+  return{
+    checkAuth:()=>dispatch(keeplogIn())
+  }
+}
+
+export default connect(null,maptoprops)(App);

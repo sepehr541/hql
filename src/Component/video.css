@@ -1,14 +1,15 @@
 .vidcontain{
     top:60px;
     left:0;
-    height:93%;
+   height:100%;
     width:100%;
-    overflow: hidden;
-    translate:(-50%,-50%);
+    overflow: hidden    ;
+    /* translate:(-50%,-50%); */
     z-index: -1;
     position: absolute;
     /* margin-right: 30%; */
     object-fit: cover;
+
 }
 
 .vid{

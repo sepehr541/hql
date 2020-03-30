@@ -1,3 +1,4 @@
+import Axios from "axios"
 
 export const sending_dates_to_redux = (start, end, people) => {
     return {
@@ -44,5 +45,54 @@ export const SendingOrderResultsToRedux=(name , phone ,email,start,end, price,re
         price:price,
         resevID:resevID
     
+    }
+}
+export const authSuccess=(token,username)=>{
+    return{
+        type:'authsucces',
+        username:username,
+        token:token
+    }
+}
+
+export const logOut=()=>{
+    localStorage.removeItem('token')
+    localStorage.removeItem('username')
+    return{
+        type:'logout'
+    }
+}
+
+export const LogginIn= (username,password)=>{
+    return dispatch=>{
+        Axios.post('http://localhost:9000/api/login' ,{username ,password})
+        .then(resp=>{
+            localStorage.setItem('username',username)
+            dispatch(authSuccess(resp.data ,username))
+        }).catch(e=>{
+            console.log(e)
+        })
+    }
+
+    
+}
+
+
+export const gettingUsername=(username)=>{
+    return{
+        type:'user',
+        username:username
+    }
+}
+
+export const keeplogIn=()=>{
+    return dispatch =>{
+        let token = localStorage.getItem('token')
+        let username=localStorage.getItem('username')
+        if(!token){
+            dispatch(logOut())
+        }else{
+            dispatch(authSuccess(token,username))
+         }
     }
 }

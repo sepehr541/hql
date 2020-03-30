@@ -8,10 +8,12 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import reducer1 from "./Reducers/dates_people"
 import reducer2 from './Reducers/OrderconfirmationReducer'
+import reducer3 from './Reducers/username'
 
 const rootreducer = combineReducers({
     dates: reducer1,
-    order:reducer2
+    order:reducer2,
+    user:reducer3
 })
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
