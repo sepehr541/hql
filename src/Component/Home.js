@@ -13,7 +13,7 @@ const Home = (props) => {
 
     <Fragment >
         <div className="vidcontain">
-          <video playsInline="playsinline" controls poster={van} autoPlay muted="muted" loop="loop">
+          <video className="video-video" playsInline="playsinline" controls poster={van} autoPlay muted="muted" loop="loop">
             <source  type="video/mp4" />
           </video>
 

@@ -31,21 +31,21 @@ const TabsContainer = (props) => {
     return (
         <Fragment>
             {check_in ? 
-            <div> 
-                    <span className='resvinfo'>{check_in}-{check_out}</span>
-                    <span className='resvinfo'> Adults {props.people}</span>
-             </div>   :null}  
-            <div id="tabsContainer" className="container">
-                <ul id="tabsList">
-                    <li className="active"><button className="tablinks btn" onClick={() => {props.openPayment(false) }}>Select Your Room</button></li>
-                    <li><button className="tablinks btn" onClick={() => {props.openPayment(true) }}>Fill in Your Information</button></li>
-                </ul>
-                <div id="tabs">
-                    {!props.openPay ? <Rooms /> : <Reservation />}
+                <div> 
+                        <span className='resvinfo'>{check_in}-{check_out}</span>
+                        <span className='resvinfo'> Adults {props.people}</span>
+                </div>   :null}  
+                <div id="tabsContainer" className="container">
+                    <ul id="tabsList">
+                        <li className="active"><button className="tablinks btn" onClick={() => {props.openPayment(false) }}>Select Your Room</button></li>
+                        <li><button className="tablinks btn" onClick={() => {props.openPayment(true) }}>Fill in Your Information</button></li>
+                    </ul>
+                    <div id="tabs">
+                        {!props.openPay ? <Rooms /> : <Reservation />}
+                    </div>
+                    <div id="tabbuttons">
+                    </div>
                 </div>
-                <div id="tabbuttons">
-                </div>
-            </div>
         </Fragment>
     )
 }
