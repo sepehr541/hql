@@ -1,12 +1,13 @@
-import React, { useEffect, useRef} from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { AddEmployee, AddRoom, AddEvent } from './AddFroms';
-import { useHistory } from 'react-router-dom'
-import M from 'materialize-css'
+import CategorySelector from './CategorySelector';
+import Unauthorized from './Unauthorized';
+import LoadingBar from './LoadingBar';
+import BackButton from './BackButton';
 import './Add.css'
-// import Axios from 'axios';
+import axios from 'axios';
 
 const Add = (props) => {
-    const history = useHistory();
     // ref for tracking and display
     const currCat = useRef(null);
     const prevCat = useRef(null);
@@ -36,6 +37,10 @@ const Add = (props) => {
 //     },[])
 
 
+    // state management
+    const auth = useRef(false);
+    const [loading, setLoading] = useState(true);
+
     // shows the currect inputs for each category
     const handleChange = (e) => {
         const curr = document.getElementById(e.target.value)
@@ -45,65 +50,66 @@ const Add = (props) => {
         currCat.current = curr;
         currCat.current.style.display = 'block';
     }
+
+    const url = 'http://localhost:9000/api/restricted/'
     useEffect(() => {
-        // initalizes the select fields
-        var elems = document.querySelectorAll('select');
-        M.FormSelect.init(elems, {});
-    }, [])
-    // let content=null
-    // if(auth){
-    //     content=(
-    //         <div id='dashboardAdd' className='container center'>
-    //         <div className='row'>
-    //             <button className='btn col s2 ' onClick={() => history.push('/dashboard')}>
-    //                 <i className='small material-icons'>arrow_back</i>
-    //             </button>
-    //         </div>
-    //         <div id='MainFormAdd'className='row'>
-    //             <div className="input-field col s3">
-    //                 <select id='categorySelect' onChange={handleChange}>
-    //                     <option value="" disabled selected>Choose your option</option>
-    //                     <option value="employeeField">Employee</option>
-    //                     <option value="roomField">Room</option>
-    //                     <option value="eventField">Event</option>
-    //                 </select>
-    //                 <label>Category</label>
-    //             </div>
-    //         </div>
-    //         <div className='row'>
-    //             <AddEmployee />
-    //             <AddRoom />
-    //             <AddEvent />
-    //         </div>
-    //     </div>
-    //     )
-    // }else{
-    //     content=
-    // }
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+        const checkauth = async () => {
+            const token = localStorage.getItem('token')
+            try {
+                await axios.get(url, {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                })
+                auth.current = true;
+            } catch (error) {
+                auth.current = false;
+            } finally {
+                setLoading(false);
+            }
+        }
+        checkauth();
+    })
+
+    let render = null;
+    if (loading) {
+        render = (
+            <div className='container center'>
+                <LoadingBar />
+            </div>
+        )
+    } else {
+        if (!auth.current) {
+            render = (
+                <Unauthorized />
+            )
+        } else {
+            render = (
+                <div>
+                    <div className='row'>
+                        <BackButton />
+                    </div>
+                    <div id='MainFormAdd' className='row'>
+                        <CategorySelector visitor={false} handleChange={handleChange} />
+                    </div>
+                    <div className='row'>
+                        <AddEmployee />
+                        <AddRoom />
+                        <AddEvent />
+                    </div>
+                </div>
+            )
+        }
+    }
 
     return (
         <div id='dashboardAdd' className='container center'>
-            <div className='row'>
-                <button className='btn col s2 ' onClick={() => history.push('/dashboard')}>
-                    <i className='small material-icons'>arrow_back</i>
-                </button>
-            </div>
-            <div id='MainFormAdd'className='row'>
-                <div className="input-field col s3">
-                    <select id='categorySelect' onChange={handleChange}>
-                        <option value="" disabled selected>Choose your option</option>
-                        <option value="employeeField">Employee</option>
-                        <option value="roomField">Room</option>
-                        <option value="eventField">Event</option>
-                    </select>
-                    <label>Category</label>
-                </div>
-            </div>
-            <div className='row'>
-                <AddEmployee />
-                <AddRoom />
-                <AddEvent />
-            </div>
+            {render}
         </div>
     )
 }

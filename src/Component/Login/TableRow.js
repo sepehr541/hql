@@ -25,11 +25,15 @@ const TableRow = (props) => {
     return (
         <tr key={key}>
             {data}
-            <td key={key + 'button'} className='right-align'>
-                <button className='btn red darken-1' onClick={handleDelete}>
-                    <i className='medium material-icons'>delete</i>
-                </button>
-            </td>
+            {props.withDelete ?
+                <td key={key + 'button'} className='right-align'>
+                    <button className='btn red darken-1' onClick={handleDelete}>
+                        <i className='medium material-icons'>delete</i>
+                    </button>
+                </td>
+                : null
+            }
+
         </tr>
     )
 }

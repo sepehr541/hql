@@ -5,7 +5,14 @@ const DashboardIcon = (props) => {
     const history = useHistory();
     return (
         <div className='center col s4'>
-            <div id={props.id} className='card small hoverable' onClick={() => history.push(`/dashboard/${props.dest}`)}>
+            <div id={props.id} className='card small hoverable' onClick={() => {
+                window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+                history.push(`/dashboard/${props.dest}`)
+            }}>
                 <div className="card-content">
                     <i className="large material-icons">{props.icon}</i>
                     <span className="card-title">{props.title}</span>

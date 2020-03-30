@@ -2,12 +2,6 @@
     padding-top: 100px;
 }
 
-#adminSpinner {
-    margin-top: 300px;
-    margin-left: 460px;
-    width: 300px;
-}
-
 #table {
     overflow-y: scroll;
 }
