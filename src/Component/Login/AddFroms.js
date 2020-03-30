@@ -19,7 +19,7 @@ export const AddEmployee = (props) => {
     }
 
     return (
-        <form id='employeeField' className='input-field col s12'>
+        <form id='Employee' className='input-field col s12'>
             <div className='row'>
                 <div className='input-field col s3'>
                     <label htmlFor='empName'>Full Name</label>
@@ -68,7 +68,7 @@ export const AddRoom = (props) => {
     }
 
     return (
-        <form id='roomField' className='input-field col s12'>
+        <form id='Room' className='input-field col s12'>
             <div className='row'>
                 <div className='input-field col s3'>
                     <label htmlFor='roomNum'>Room Number</label>
@@ -126,7 +126,7 @@ export const AddEvent = (props) => {
 
 
     return (
-        <form id='eventField' className='input-field col s12'>
+        <form id='Event' className='input-field col s12'>
             <div className='row'>
                 <div className='input-field col s3'>
                     <label htmlFor='eventName'>Event's Name</label>

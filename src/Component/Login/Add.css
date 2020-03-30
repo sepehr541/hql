@@ -2,7 +2,7 @@
     margin-top: 100px;
 }
 
-#employeeField, #roomField, #eventField {
+#Employee, #Room, #Event {
     display: none;
 }
 

@@ -12,7 +12,7 @@ const Dashboard = () => {
             <div className='row'>
                 <DashboardIcon id='events' dest='events' icon='event' title='Events' />
                 <DashboardIcon id='add' dest='add' icon='add' title='Add' />
-                {/* <DashboardIcon id='update' dest='update' icon='mode_edit' title='Update' /> */}
+                <DashboardIcon id='search' dest='search' icon='search' title='Search' />
             </div>
         </div>
     )
