@@ -9,6 +9,7 @@ import Dashboard from './Component/Login/Dashboard'
 import Table from './Component/Login/Table'
 import Add from './Component/Login/Add'
 import Search from './Component/Login/Search'
+import Stats from './Component/Login/Stats';
 import "./Component/video.css"
 import Orderconfirmation from './Component/orderconf'
 import Footer from './Component/footer'
@@ -26,6 +27,7 @@ function App() {
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/dashboard/add' component={Add} />
           <Route exact path='/dashboard/search' component={Search} />
+          <Route exact path='/dashboard/stats' component={Stats} />
           <Route path='/dashboard/:data' component={Table} />
           <Route path='/orderconfirmation' component={Orderconfirmation}/>
         </Switch>
