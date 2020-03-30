@@ -57,6 +57,7 @@ export const authSuccess=(token,username)=>{
 
 export const logOut=()=>{
     localStorage.removeItem('token')
+    localStorage.removeItem('username')
     return{
         type:'logout'
     }

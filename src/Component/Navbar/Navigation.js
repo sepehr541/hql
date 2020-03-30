@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react"
+import React, { useState, Fragment } from "react"
 import "./Nav.css"
 import Checkrate from "../CheckRate"
 import { NavLink } from 'react-router-dom'
