@@ -9,14 +9,11 @@ const CategorySelector = (props) => {
     },[])
     return (
         <div className="input-field col s3">
-            <select id='categorySelect' onChange={props.handleChange}>
+            <select id={props.id} onChange={props.handleChange}>
                 <option value="" disabled selected>Choose your option</option>
-                <option value="employeeField">Employee</option>
-                <option value="roomField">Room</option>
-                <option value="eventField">Event</option>
-                {props.visitor ? <option value='visitorField'>Visitor</option>: null}
+                {props.options.map(opt => <option value={`${opt}`}>{opt}</option>)}
             </select>
-            <label>Category</label>
+            <label>{props.label}</label>
         </div>
     )
 }

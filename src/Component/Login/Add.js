@@ -70,7 +70,7 @@ const Add = (props) => {
                         <BackButton />
                     </div>
                     <div id='MainFormAdd' className='row'>
-                        <CategorySelector visitor={false} handleChange={handleChange} />
+                        <CategorySelector options={['Employee', 'Room', 'Event']} lable={'Category'} id={'addSelector'} handleChange={handleChange} />
                     </div>
                     <div className='row'>
                         <AddEmployee />

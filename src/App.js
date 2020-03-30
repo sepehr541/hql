@@ -8,7 +8,7 @@ import Login from './Component/Login/Login'
 import Dashboard from './Component/Login/Dashboard'
 import Table from './Component/Login/Table'
 import Add from './Component/Login/Add'
-// import Update from './Component/Login/Update'
+import Search from './Component/Login/Search'
 import "./Component/video.css"
 import Orderconfirmation from './Component/orderconf'
 import Footer from './Component/footer'
@@ -25,7 +25,7 @@ function App() {
           <Route path="/login" component={Login} />
           <Route exact path='/dashboard' component={Dashboard} />
           <Route exact path='/dashboard/add' component={Add} />
-          {/* <Route exact path='/dashboard/update' component={Update} /> */}
+          <Route exact path='/dashboard/search' component={Search} />
           <Route path='/dashboard/:data' component={Table} />
           <Route path='/orderconfirmation' component={Orderconfirmation}/>
         </Switch>
