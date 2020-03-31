@@ -7,31 +7,31 @@
 }
 
 .logo{
-    position: relative;
+    position: absolute;
     left: 763px;
     top: 20px;
 }
 
 .social{
-    position: relative;
+    position: absolute;
     color: white;
-    top: -80px;
+    top: 100px;
     font-size: x-large;
     left: 50px;
     font-family:'Franklin Gothic Medium';
 }
 .amirInsta{
-    position: relative;
+    position: absolute;
     color: white;
-    top: -80px;
+    top: 200px;
     left:50px;
     font-size: small;
 }
 .contact{
-    position: relative;
+    position: absolute;
     font-family: 'Franklin Gothic Medium';
     font-size: x-large;
     color:white;
-    top: -243px;
+    top: 130px;
     left: 300px;
 }
