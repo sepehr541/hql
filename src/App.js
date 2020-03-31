@@ -12,6 +12,7 @@ import Search from './Component/Login/Search'
 import Stats from './Component/Login/Stats';
 import "./Component/video.css"
 import Orderconfirmation from './Component/orderconf'
+import Maint from './Component/Login/Maint';
 import Footer from './Component/footer'
 import {connect} from 'react-redux'
 import {keeplogIn} from '../src/Actions/action'
@@ -36,6 +37,7 @@ const App=(props)=> {
           <Route exact path='/dashboard/add' component={Add} />
           <Route exact path='/dashboard/search' component={Search} />
           <Route exact path='/dashboard/stats' component={Stats} />
+          <Route exact path='/dashboard/maint' component={Maint} />
           <Route path='/dashboard/:data' component={Table} />
           <Route path='/orderconfirmation' component={Orderconfirmation}/>
           <Route path='/ordershowpage' component={Order}/>

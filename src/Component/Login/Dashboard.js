@@ -16,6 +16,7 @@ const Dashboard = () => {
             </div>
             <div className='row'>
                 <DashboardIcon id='stats' dest='stats' icon='poll' title='Statistics' />
+                <DashboardIcon id='maint' dest='maint' icon='build' title='Maintenance' />
             </div>
         </div>
     )
