@@ -16,7 +16,13 @@ const Maint = (props) => {
     useEffect(() => {
         const getData = async () => {
             try {
-                const resp = await axios.get(url + 'api/restricted/essentials');
+                let token=localStorage.getItem('token')
+                const resp = await axios.get(url + 'api/restricted/essentials',{
+                    headers:{
+                        Authorization:`Bearer ${token}`
+                    }
+                });
+                auth.current=true
                 setData(resp.data);
             } catch (error) {
                 if (error.response.status) {
