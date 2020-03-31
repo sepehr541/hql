@@ -55,13 +55,13 @@ const Maint = (props) => {
             let noList = [];
 
             for (let i = 0; i < nolistCount; i++) {
-                noList.push(<List data={data.notreq.slice(i * 5, ((i + 1) * 5) > data.notreq.length ? data.notreq.length : ((i + 1) * 5))} title='Room Number' />)
+                noList.push(<List key={Math.random(1,24234)} data={data.notreq.slice(i * 5, ((i + 1) * 5) > data.notreq.length ? data.notreq.length : ((i + 1) * 5))} title='Room Number' />)
             }
             const yeslistCount = Math.ceil(data.req.length / 5);
             let yesList = [];
 
             for (let i = 0; i < yeslistCount; i++) {
-                yesList.push(<List data={data.req.slice(i * 5, ((i + 1) * 5) > data.req.length ? data.req.length : ((i + 1) * 5))} title='Room Number' />)
+                yesList.push(<List key={Math.random(1,543656)} data={data.req.slice(i * 5, ((i + 1) * 5) > data.req.length ? data.req.length : ((i + 1) * 5))} title='Room Number' />)
             }
             render = (
                 <div>
@@ -72,7 +72,7 @@ const Maint = (props) => {
                     <div className='row'>
                         {yesList}
                     </div>
-                    <h3><h3>Maintenance not required</h3></h3>
+                    <h3>Maintenance not required</h3>
                     <div className='row'>
                         {noList}
                     </div>
