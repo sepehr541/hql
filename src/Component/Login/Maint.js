@@ -72,7 +72,7 @@ const Maint = (props) => {
                     <div className='row'>
                         {yesList}
                     </div>
-                    <h3><h3>Maintenance not required</h3></h3>
+                    <h3>Maintenance not required</h3>
                     <div className='row'>
                         {noList}
                     </div>
