@@ -22,6 +22,7 @@ const Maint = (props) => {
                         Authorization:`Bearer ${token}`
                     }
                 });
+                console.log(resp.data)
                 auth.current=true
                 setData(resp.data);
             } catch (error) {
@@ -34,7 +35,7 @@ const Maint = (props) => {
         }
 
         getData();
-    }, [data])
+    },[url])
 
 
     let render = null;
