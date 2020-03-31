@@ -63,11 +63,6 @@ class Reservation extends Component {
         console.log(obj)
         axios.post(`http://localhost:9000/Reservation`, obj)
             .then(resp => { console.log(resp.data) })
-
-        //  setTimeout(() => {
-        //      this.closeModal()
-        //      this.props.history.push('/')
-        //  }, 2000);
     }
 
 
@@ -95,7 +90,7 @@ class Reservation extends Component {
                     <form>
                         <div className="row">
                             <div className="col s6">
-                                <h2 style={{ fontWeight: 'bold', fontSize: 'large' }}>Guest Details</h2>
+                                <h2>Guest Details</h2>
 
                                 <input onChange={this.onChange} type="text" id="name"></input>
                                 <label style={{ top: '20px' }} htmlFor="name">Full Name</label>
@@ -111,13 +106,12 @@ class Reservation extends Component {
                             </div>
                             <div className="col s6">
                                 <h2>Paymen Details</h2>
-
                                 <input type="text" id="creditCard"></input>
                                 <label htmlFor="creditCard">Credit Card Number</label>
-                                <label htmlFor="creditExp">Expiary Date</label>
                                 <input type="text" id="creditExp" maxLength="4"></input>
-                                <label htmlFor="creditCvv">CVV</label>
+                                <label htmlFor="creditExp">Expiary Date</label>
                                 <input type="text" id="creditCVV" maxLength="4"></input>
+                                <label htmlFor="creditCvv">CVV</label>
                             </div>
                         </div>
                     </form>
