@@ -4,6 +4,7 @@ import LoadingBar from './LoadingBar';
 import Unauthorized from './Unauthorized';
 import List from './List';
 import BackButton from './BackButton';
+import './Maint.css'
 
 const Maint = (props) => {
 
@@ -16,14 +17,15 @@ const Maint = (props) => {
     useEffect(() => {
         const getData = async () => {
             try {
-                let token=localStorage.getItem('token')
-                const resp = await axios.get(url + 'api/restricted/essentials',{
-                    headers:{
-                        Authorization:`Bearer ${token}`
+                let token = localStorage.getItem('token')
+                const resp = await axios.get(url + 'api/restricted/essentials', {
+                    headers: {
+                        Authorization: `Bearer ${token}`
                     }
                 });
-                auth.current=true
+                auth.current = true
                 setData(resp.data);
+                console.log(resp.data);
             } catch (error) {
                 if (error.response.status) {
                     auth.current = false;
@@ -34,7 +36,7 @@ const Maint = (props) => {
         }
 
         getData();
-    }, [data])
+    }, [])
 
 
     let render = null;

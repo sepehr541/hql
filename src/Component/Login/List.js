@@ -1,16 +1,20 @@
-import React, { useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const List = (props) => {
     const items = useRef([]);
     useEffect(() => {
-        items.current = props.data.map(data => <li className="collection-item">{data}</li>)
+        console.log(props.data);
+        items.current = props.data.map(d => <li className="collection-item">{d}</li>)
+        
     }, [items, props.data])
 
     return (
-        <ul class="collection with-header">
-            <li class="collection-header"><h4>{props.title}</h4></li>
-            {items}
-        </ul>
+        <div className='col s3'>
+            <ul class="collection with-header">
+                <li class="collection-header">{props.title}</li>
+                {items.current}
+            </ul>
+        </div>
     )
 }
 
