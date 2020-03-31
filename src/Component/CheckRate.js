@@ -31,6 +31,9 @@ class CheckRate extends Component {
         } else {
             this.props.openPayment(false)
             this.props.send_dates(this.state.startDate._d, this.state.endDate._d, this.state.people)
+            let bar = document.getElementById("checkbar");
+            this.props.setParentRate(false);
+            bar.style.top = "-60px";
             this.props.history.push("/resv")
         }
     }

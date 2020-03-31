@@ -53,7 +53,7 @@ const Nav = (props) => {
                     {props.token ? dropdown :<NavLink to='/login'>Login</NavLink>}
                     <button onClick={() => setCheckBarVisibility()} className="btn"> Check your rate </button>
                 </header>
-                <Checkrate showCheck={true} />
+                <Checkrate showCheck={true} setParentRate={setrate}/>
         </Fragment>
     )
 }
