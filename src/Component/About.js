@@ -5,6 +5,8 @@ import nodeLogo from '../nodejsLogo.png';
 import reactLogo from '../reactjsLogo.svg';
 import expressLogo from '../expressLogo.svg';
 import postgresLogo from '../postgreslogo.png';
+import materializeLogo from '../materializeLogo.png';
+import azureLogo from '../azureLogo.svg';
 import M from 'materialize-css'
 const About = (props) => {
     const LOGO_WH = '150px'
@@ -32,10 +34,12 @@ const About = (props) => {
                         Powered by:
                          </p>
                     <div className='row'>
-                        <img src={nodeLogo} alt='' style={{width:'160px', height:LOGO_WH}} className='col s4'/>
-                        <img src={reactLogo} alt='' style={LOGO_STYLE} className='col s4' />
-                        <img src={expressLogo} alt='' style={LOGO_STYLE} className='col s4'/>
-                        <img src={postgresLogo} alt='' style={{width:'160px', height:LOGO_WH}} className='col s4' />
+                        <a href='https://nodejs.org/en/' target="_blank" rel="noopener noreferrer"><img src={nodeLogo} alt='' style={{width:'160px', height:LOGO_WH}} className='col s4'/></a>
+                        <a href='https://reactjs.org/' target="_blank" rel="noopener noreferrer"><img src={reactLogo} alt='' style={LOGO_STYLE} className='col s4' /></a>
+                        <a href='https://expressjs.com/' target="_blank" rel="noopener noreferrer"><img src={expressLogo} alt='' style={LOGO_STYLE} className='col s4'/></a>
+                        <a href='https://www.postgresql.org/' target="_blank" rel="noopener noreferrer"><img src={postgresLogo} alt='' style={{width:'160px', height:LOGO_WH}} className='col s4' /></a>
+                        <a href='https://materializecss.com/' target="_blank" rel="noopener noreferrer"><img src={materializeLogo} alt='' style={{width:'230px', height:'130px'}} className='col s4' /></a>
+                        <a href='https://azure.microsoft.com/en-ca/' target="_blank" rel="noopener noreferrer"><img src={azureLogo} alt='' style={{width:'200px', height:LOGO_WH}} className='col s4' /></a>
                     </div>
                 </div>
             </div>

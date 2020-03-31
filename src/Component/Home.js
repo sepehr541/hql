@@ -1,14 +1,13 @@
 import React, { Fragment } from 'react'
 import "./video.css"
-// import Video from "../../src/vancouver.mp4"
+import Video from "../../src/tl.mp4"
 import van from './PosterPic.jpg'
 
 const Home = (props) => {
   return (
     <Fragment >
         <div className="vidcontain">
-          <video className="video-video" playsInline="playsinline" controls poster={van} autoPlay muted="muted" loop="loop">
-            <source  type="video/mp4" />
+          <video src={Video} className="video-video" playsInline="playsinline" controls poster={van} autoPlay muted="muted">
           </video>
 
         </div>
