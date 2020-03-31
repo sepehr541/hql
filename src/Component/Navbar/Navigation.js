@@ -47,7 +47,7 @@ const Nav = (props) => {
     return (
         <Fragment>
                 <header className="Nav">
-                    <NavLink onClick={() => hideCheckBar()} to="/resv">Make a booking</NavLink>
+                    <NavLink onClick={() => hideCheckBar()} to="/ordershowpage">Check order</NavLink>
                     <NavLink to="/about">About Us</NavLink>
                     <NavLink to='/' ><img src={Logo} id='logo' alt='logo'></img></NavLink>
                     {props.token ? dropdown :<NavLink to='/login'>Login</NavLink>}

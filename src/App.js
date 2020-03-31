@@ -15,6 +15,7 @@ import Orderconfirmation from './Component/orderconf'
 import Footer from './Component/footer'
 import {connect} from 'react-redux'
 import {keeplogIn} from '../src/Actions/action'
+import Order from '../src/Component/OrderconfShowPage'
 const App=(props)=> {
 
 
@@ -37,6 +38,7 @@ const App=(props)=> {
           <Route exact path='/dashboard/stats' component={Stats} />
           <Route path='/dashboard/:data' component={Table} />
           <Route path='/orderconfirmation' component={Orderconfirmation}/>
+          <Route path='/ordershowpage' component={Order}/>
         </Switch>
         <Footer/>
       </Fragment>

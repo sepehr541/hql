@@ -82,7 +82,7 @@ const Table = (props) => {
                 </tr>
             )
             // make and populate the rows
-            const rows = Object.values(data).map((row, i) => <TableRow url={url} data={row} index={i} withDelete={true} setDeleted={setDeleted} />)
+            const rows = Object.values(data).map((row, i) => <TableRow key={Math.random(1,666964)} url={url} data={row} index={i} withDelete={true} setDeleted={setDeleted} />)
 
             render = (
                 <div id='table'>
@@ -96,7 +96,7 @@ const Table = (props) => {
     }
 
     return (
-        <div id='renderContainer' className='container center preload'>
+        <div key={Math.random(1,70000)} id='renderContainer' className='container center preload'>
             <div id='tableActionButtons' className='row'>
                 {back ? <BackButton /> : null}
                 {add ? <button className='btn col s2 push-s8' onClick={() => history.push('/dashboard/add')}>Add</button> : null}
