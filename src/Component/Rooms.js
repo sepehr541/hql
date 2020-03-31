@@ -25,22 +25,33 @@ const Rooms = (props) => {
     }
     // runs when mounting or change of any of props.start, props.end, props.people
     useEffect(() => {
-        console.log('effect ran');
-        if(!props.start|| !props.end||!props.people)return alert('your thing is empty')
         var gettingRooms = async () => {
             // object of response
             setavailableRooms(null)
             const resp = await axios.post(`http://localhost:9000/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
             // data property will have JSON of rooms
             setavailableRooms(resp.data)
-          
+
         }
         gettingRooms()
     }, [props.start, props.end, props.people])
 
     let roomAvailability = null;
 
-    if (!availableRooms || availableRooms.length === 0) {
+    if (!props.start || !props.end || !props.people) {
+        roomAvailability = (
+            <div className='row center'>
+                <div className='col s12'>
+                    <h3>
+                        You have not provided details of your stay!
+                </h3>
+                    <h4>
+                        Please do so by using the checkrate button on the top-right corner
+                </h4>
+                </div>
+            </div>
+        )
+    } else if (!availableRooms || availableRooms.length === 0) {
         return (
             <Fragment>
                 <div>
@@ -51,15 +62,11 @@ const Rooms = (props) => {
                     </div>
             </Fragment>
         )
-    }
-
-    if (availableRooms && availableRooms.length > 0) {
+    } else if (availableRooms && availableRooms.length > 0) {
         console.log(availableRooms)
         roomAvailability = availableRooms.map(x => (
             <Room key={x.roomnumber} id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
     }
-
- 
 
     return (
         <div className="Rooms">
