@@ -13,6 +13,7 @@ const Stats = (props) => {
     const auth = useRef(true);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [noData , setNoData]=useState(false)
 
     useEffect(() => {
         window.scroll({
@@ -28,10 +29,13 @@ const Stats = (props) => {
                         Authorization: `Bearer ${token}`
                     }
                 })
+                console.log(resp.data)
                 setData(resp.data);
             } catch (error) {
                 if (error.response.status === 403) {
                     auth.current = false;
+                }if(error.response.status===404){
+                    setNoData(true)
                 }
             } finally {
                 setLoading(false);
@@ -47,7 +51,7 @@ const Stats = (props) => {
     } else {
         if (!auth.current) {
             render = <Unauthorized />
-        } else {
+        } else if(!noData) {
             render = (
                 <div>
                     <div className='row'>
@@ -72,6 +76,14 @@ const Stats = (props) => {
                         </div>
                     </div>
                 </div>
+            )
+        }else {
+            render=(
+                <div id='authFailed' className='center'>
+            <i className='large material-icons'>error_outline</i>
+            <h2>404:No data found</h2>
+            <h3> please try again later</h3>
+        </div>
             )
         }
     }

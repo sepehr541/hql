@@ -19,13 +19,13 @@ const About = (props) => {
     }, [])
     return (
         <div>
-            <div class="parallax-container">
-                <div class="parallax"><img src={paral1} style={{ width: '100%' }} alt=''/></div>
+            <div className="parallax-container">
+                <div className="parallax"><img src={paral1} style={{ width: '100%' }} alt=''/></div>
             </div>
-            <div class="section white">
-                <div class="row container">
-                    <h2 class="header">HQL at Vancouver</h2>
-                    <p class="grey-text text-darken-3 lighten-3">
+            <div className="section white">
+                <div className="row container">
+                    <h2 className="header">HQL at Vancouver</h2>
+                    <p className="grey-text text-darken-3 lighten-3">
                         HQL is a fictional hotel in Vancouver, B.C, managed with an underlaying SQL database.
                     </p>
                     <p>
@@ -39,8 +39,8 @@ const About = (props) => {
                     </div>
                 </div>
             </div>
-            <div class="parallax-container">
-                <div class="parallax"><img src={paral2} style={{ width: '100%' }} alt='' /></div>
+            <div className="parallax-container">
+                <div className="parallax"><img src={paral2} style={{ width: '100%' }} alt='' /></div>
             </div>
         </div>
     )
