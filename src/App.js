@@ -51,6 +51,7 @@ const App = (props) => {
   );
 }
 
+
 const maptoprops = dispatch => {
   return {
     checkAuth: () => dispatch(keeplogIn())
