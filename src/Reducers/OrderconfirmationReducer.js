@@ -6,7 +6,7 @@ const initialstate={
     start:null,
     end:null,
     price:null,
-    resevID:null
+    resevID:null,
 }
 
 

@@ -2,7 +2,8 @@ import React, { useState, Fragment } from 'react'
 import './orderconf.css'
 import {withRouter} from 'react-router-dom'
 import Axios from 'axios'
-
+import { connect } from 'react-redux'
+import {SendingOrderResultsToRedux} from '../../Actions/action'
 
 
 
@@ -18,7 +19,7 @@ var sendingToBack=async()=>{
     console.log(orderconf)
     const resp= await Axios.post('/api/orderconf',{orderNum:orderconf})
     const results=await resp.data    
-    console.log(results)
+    props.sendingOrder(results.visitorname, results.email , results.phone, results.reservationid , results.startdate , results.enddate, results.price)
     props.history.push(`/orderconfirmation/${orderconf}`)
 
 }
@@ -34,7 +35,11 @@ var sendingToBack=async()=>{
     )
 }
 
+const maptoprops=dispatch=>{
+    return{
+        sendingOrder:(name,email,phone,reservationid,startdate,enddate,price)=>dispatch(SendingOrderResultsToRedux(name,email,phone,reservationid,startdate,enddate,price))
+    }
+}
 
 
-
-export default withRouter(OrderConfirmation);
+export default connect(null ,maptoprops)(withRouter(OrderConfirmation));
