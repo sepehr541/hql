@@ -1,14 +1,14 @@
 import React, { Fragment, useState, useEffect } from "react"
 import Room from "./Room"
 import "./Rooms.css"
-import bed from "../2bed.jpeg"
-import bed3 from "../3bed.jpeg"
+import bed from "../bed3.jpg"
+import bed3 from '../bedKing.jpg'
+import bed4 from '../bed4.jpg'
+import bed5 from '../bed5.jpg'
 import Spinner from "./Spinner/Spinner"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import axios from "axios"
-
-
 // let arr = [{ price: 543, bedtype: "2 bed" }, { price: 345, bedtype: "1 bed" }, { price: 649, bedtype: "3 bed" }, { price: 450, bedtype: "2 bed" }]
 
 const Rooms = (props) => {
@@ -25,22 +25,34 @@ const Rooms = (props) => {
     }
     // runs when mounting or change of any of props.start, props.end, props.people
     useEffect(() => {
-        console.log('effect ran');
-        if(!props.start|| !props.end||!props.people)return alert('your thing is empty')
         var gettingRooms = async () => {
             // object of response
             setavailableRooms(null)
             const resp = await axios.post(`http://localhost:9000/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
             // data property will have JSON of rooms
             setavailableRooms(resp.data)
-          
+            console.log(resp.data);
+
         }
         gettingRooms()
     }, [props.start, props.end, props.people])
 
     let roomAvailability = null;
 
-    if (!availableRooms || availableRooms.length === 0) {
+    if (!props.start || !props.end || !props.people) {
+        roomAvailability = (
+            <div className='row center'>
+                <div className='col s12'>
+                    <h3>
+                        You have not provided details of your stay!
+                </h3>
+                    <h4>
+                        Please do so by using the checkrate button on the top-right corner
+                </h4>
+                </div>
+            </div>
+        )
+    } else if (!availableRooms || availableRooms.length === 0) {
         return (
             <Fragment>
                 <div>
@@ -51,15 +63,11 @@ const Rooms = (props) => {
                     </div>
             </Fragment>
         )
-    }
-
-    if (availableRooms && availableRooms.length > 0) {
+    } else if (availableRooms && availableRooms.length > 0) {
         console.log(availableRooms)
         roomAvailability = availableRooms.map(x => (
-            <Room key={x.roomnumber} id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === 2 ? bed : bed3} />))
+            <Room key={x.roomnumber} id={x.roomnumber} price={x.price} bedtype={x.bedtype} source={x.bedtype === "Single" ? bed : (x.bedtype === 'King'? bed4: ( x.bedtype=== 'Queen'? bed3 : bed5))} />))
     }
-
- 
 
     return (
         <div className="Rooms">

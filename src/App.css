@@ -2,21 +2,12 @@
     z-index: -5;
 } */
 
-  /**
-   * Footer Styles
-   */
-   html, body {
+body {
+    display: grid;
+}
+#main {
+    position: relative;
+    top: 60px;
+    min-height: 900px;
     height: 100%;
-  }
-
-  .wrapper {
-    min-height: 100%;
-
-  }
-  .main{
-      overflow: auto;
-      padding-bottom: 500px;
-      position: relative;
-      margin-bottom: 500px;
-  }
-
+}

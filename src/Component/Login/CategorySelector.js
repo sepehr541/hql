@@ -11,7 +11,7 @@ const CategorySelector = (props) => {
         <div className="input-field col s3">
             <select  id={props.id} onChange={props.handleChange}>
                 <option value="" disabled selected>Choose your option</option>
-                {props.options.map(opt => <option key={Math.random(1,432423)} value={`${opt}`}>{opt}</option>)}
+                {props.options.map(opt => <option key={`${opt}`} value={`${opt}`}>{opt}</option>)}
             </select>
             <label>{props.label}</label>
         </div>

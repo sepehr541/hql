@@ -14,53 +14,47 @@ import "./Component/video.css"
 import Orderconfirmation from './Component/orderconf'
 import Maint from './Component/Login/Maint';
 import Footer from './Component/footer'
-import {connect} from 'react-redux'
-import {keeplogIn} from '../src/Actions/action'
+import { connect } from 'react-redux'
+import { keeplogIn } from '../src/Actions/action'
 import Order from '../src/Component/OrderconfShowPage'
+
 import './App.css'
-const App=(props)=> {
-
-
-  useEffect(()=>{
+const App = (props) => {
+  useEffect(() => {
     props.checkAuth()
     //eslint-disable-next-line
-  },[])
+  }, [])
+
   return (
     <BrowserRouter>
       <Fragment>
-        <body >
-          <div className='wrapper'>
-            <div className='main'>
-            <Nav />
-        <Route exact path="/" component={Home} />
-        <Switch>
-          <Route path="/about" component={About} />
-          <Route path="/resv" component={TabsContainer} />
-          <Route path="/login" component={Login} />
-          <Route exact path='/dashboard' component={Dashboard} />
-          <Route exact path='/dashboard/add' component={Add} />
-          <Route exact path='/dashboard/search' component={Search} />
-          <Route exact path='/dashboard/stats' component={Stats} />
-          <Route exact path='/dashboard/maint' component={Maint} />
-          <Route path='/dashboard/:data' component={Table} />
-          <Route path='/orderconfirmation' component={Orderconfirmation}/>
-          <Route path='/ordershowpage' component={Order}/>
-        </Switch>  
-            </div>
-  
-          </div>
-        <Footer/>
-        </body>
-
+        <Nav />
+        <main id='main'>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/resv" component={TabsContainer} />
+            <Route path="/login" component={Login} />
+            <Route exact path='/dashboard' component={Dashboard} />
+            <Route exact path='/dashboard/add' component={Add} />
+            <Route exact path='/dashboard/search' component={Search} />
+            <Route exact path='/dashboard/stats' component={Stats} />
+            <Route exact path='/dashboard/maint' component={Maint} />
+            <Route path='/dashboard/:data' component={Table} />
+            <Route path='/orderconfirmation' component={Orderconfirmation} />
+            <Route path='/ordershowpage' component={Order} />
+          </Switch>
+        </main>
+        <Footer />
       </Fragment>
     </BrowserRouter>
   );
 }
 
-const maptoprops=dispatch=>{
-  return{
-    checkAuth:()=>dispatch(keeplogIn())
+const maptoprops = dispatch => {
+  return {
+    checkAuth: () => dispatch(keeplogIn())
   }
 }
 
-export default connect(null,maptoprops)(App);
+export default connect(null, maptoprops)(App);
