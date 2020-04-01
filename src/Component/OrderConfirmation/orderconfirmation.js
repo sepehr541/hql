@@ -19,7 +19,7 @@ var sendingToBack=async()=>{
     console.log(orderconf)
     const resp= await Axios.post('/api/orderconf',{orderNum:orderconf})
     const results=await resp.data    
-    props.sendingOrder(results.visitorname, results.email , results.phone, results.reservationid , results.startdate , results.enddate, results.price)
+    props.sendingOrder(results.visitorname, results.phone , results.email , results.startdate , results.enddate, results.price,results.reservationid)
     props.history.push(`/orderconfirmation/${orderconf}`)
 
 }
@@ -37,7 +37,7 @@ var sendingToBack=async()=>{
 
 const maptoprops=dispatch=>{
     return{
-        sendingOrder:(name,email,phone,reservationid,startdate,enddate,price)=>dispatch(SendingOrderResultsToRedux(name,email,phone,reservationid,startdate,enddate,price))
+        sendingOrder:(name,phone,email,startdate,enddate,price,reservationid)=>dispatch(SendingOrderResultsToRedux(name,phone,email,startdate,enddate,price,reservationid))
     }
 }
 
