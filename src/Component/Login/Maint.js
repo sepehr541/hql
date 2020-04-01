@@ -54,7 +54,8 @@ const Maint = (props) => {
             let noList = [];
 
             for (let i = 0; i < nolistCount; i++) {
-                noList.push(<List key={Math.random(1,24234)} data={data.notreq.slice(i * 5, ((i + 1) * 5) > data.notreq.length ? data.notreq.length : ((i + 1) * 5))} title='Room Number' />)
+                noList.push(<List key={Math.random(1,24234
+                    )} data={data.notreq.slice(i * 5, ((i + 1) * 5) > data.notreq.length ? data.notreq.length : ((i + 1) * 5))} title='Room Number' />)
             }
             const yeslistCount = Math.ceil(data.req.length / 5);
             let yesList = [];
