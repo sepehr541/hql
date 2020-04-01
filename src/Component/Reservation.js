@@ -59,8 +59,12 @@ class Reservation extends Component {
             phone: this.state.phone,
             email: this.state.email,
             totalPrice:this.gettingTotalPrice(this.props.people)
+          
         }
         console.log(obj)
+        setTimeout(() => {
+                this.props.history.push('/')
+        }, 3000);
         axios.post(`/Reservation`, obj)
             .then(resp => { console.log(resp.data) })
     }
@@ -84,7 +88,7 @@ class Reservation extends Component {
         return (
             <Fragment>
                 {this.state.Modal ?
-                    <Modal show={this.state.Modal}  >Your reservation is beiong confirmed once its confirmed you will be redirected to the main page</Modal> : null}
+                    <Modal show={this.state.Modal}  >Your reservation is being confirmed once its confirmed you will be redirected to the main page</Modal> : null}
                 <div className="Reservation">
                     <h1>Booking Details</h1>
                     <form>

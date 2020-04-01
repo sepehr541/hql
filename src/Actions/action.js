@@ -35,6 +35,9 @@ console.log(name)
 }
 
 export const SendingOrderResultsToRedux=(name , phone ,email,start,end, price,resevID)=>{
+    console.log(name)
+    console.log(phone)
+    console.log(email)
     return{
         type:'orderconf',
         name:name,
