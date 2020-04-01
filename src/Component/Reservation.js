@@ -11,7 +11,8 @@ class Reservation extends Component {
         phone: null,
         email: null,
         confirmEmail: null,
-        Modal: false
+        Modal: false,
+        orderconf:null
     }
 
     onChange = (e) => {
@@ -62,13 +63,26 @@ class Reservation extends Component {
           
         }
         console.log(obj)
-        setTimeout(() => {
-                this.props.history.push('/')
-        }, 3000);
-        axios.post(`/Reservation`, obj)
-            .then(resp => { console.log(resp.data) })
-    }
-
+        // setTimeout(() => {
+        //         this.props.history.push('/')
+        // }, 10000);
+            axios.post(`/Reservation`, obj)
+            .then(resp=>{
+                console.log(resp.data)
+                setTimeout(() => {
+                    this.setState({
+                        orderconf:resp.data.answers
+                    })
+                    setTimeout(() => {
+                        this.props.history.push('/')
+                    }, 5000);
+                }, 7000);
+                
+            })
+          
+    
+}
+   
 
     openModal = () => {
         this.setState(({
@@ -83,12 +97,26 @@ class Reservation extends Component {
         }))
     }
 
+
     render() {
+        // console.log(this.start.orderconf)
+        let text=null
+        console.log(this.state.orderconf)
+        if(this.state.orderconf){
+            text=(
+            <Modal show={this.state.Modal}>{this.state.orderconf}</Modal>
+                )
+        }else{
+            text=(
+                <Modal show={this.state.Modal} >Your reservation is being confirmed once its confirmed you will see your order confirmation id</Modal>
+            )
+        }
+       
         console.log(this.state);
         return (
             <Fragment>
                 {this.state.Modal ?
-                    <Modal show={this.state.Modal}  >Your reservation is being confirmed once its confirmed you will be redirected to the main page</Modal> : null}
+                              text  : null}
                 <div className="Reservation">
                     <h1>Booking Details</h1>
                     <form>
