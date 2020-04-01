@@ -28,7 +28,7 @@ const Rooms = (props) => {
         var gettingRooms = async () => {
             // object of response
             setavailableRooms(null)
-            const resp = await axios.post(`http://localhost:9000/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
+            const resp = await axios.post(`/api/rooms?start=${dateFormatter(props.start)}&end=${dateFormatter(props.end)}&people=${props.people}`)
             // data property will have JSON of rooms
             setavailableRooms(resp.data)
             console.log(resp.data);

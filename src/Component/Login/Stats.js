@@ -9,7 +9,7 @@ import StatsChart from './StatsChart';
 
 const Stats = (props) => {
 
-    const url = 'http://localhost:9000/api/restricted/stats';
+    const url = '/api/restricted/stats';
     const auth = useRef(true);
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);

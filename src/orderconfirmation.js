@@ -17,7 +17,7 @@ var gettingOrderConf=(e)=>{
 
 var sendingToBack=async()=>{
     console.log(orderconf)
-    const resp= await Axios.post('http://localhost:9000/api/orderconf',{orderNum:orderconf})
+    const resp= await Axios.post('/api/orderconf',{orderNum:orderconf})
     const results=await resp.data
     let result=results[0]
     console.log(result)

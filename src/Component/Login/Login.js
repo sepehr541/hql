@@ -15,7 +15,7 @@ const Login = (props) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-          const resp=  await axios.post('http://localhost:9000/api/login', { username, password });
+          const resp=  await axios.post('/api/login', { username, password });
             localStorage.setItem('token', resp.data);
             props.gettingUser(username,password)
             history.push('/dashboard')
@@ -33,7 +33,7 @@ const Login = (props) => {
         if(!username || !password) return alert('Please fill out the inputs to change your password')
         try{
             let obj={username:username, password:password}
-            const response= await axios.post('http://localhost:9000/api/login/forgotPassword', obj)
+            const response= await axios.post('/api/login/forgotPassword', obj)
             console.log(response.data)
             setTimeout(() => {
                 props.history.push('/')
