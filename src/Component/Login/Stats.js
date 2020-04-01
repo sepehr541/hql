@@ -24,6 +24,7 @@ const Stats = (props) => {
         const token = localStorage.getItem('token');
         const getStats = async () => {
             try {
+                
                 const resp = await axios.get(url, {
                     headers: {
                         Authorization: `Bearer ${token}`

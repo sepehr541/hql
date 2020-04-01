@@ -19,7 +19,7 @@ const About = (props) => {
     }, [])
     return (
         <div>
-            <div className="parallax-container">
+            <div  className="parallax-container">
                 <div className="parallax"><img src={paral1} style={{ width: '100%' }} alt=''/></div>
             </div>
             <div className="section white">

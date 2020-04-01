@@ -17,6 +17,7 @@ import Footer from './Component/footer'
 import {connect} from 'react-redux'
 import {keeplogIn} from '../src/Actions/action'
 import Order from '../src/Component/OrderconfShowPage'
+import './App.css'
 const App=(props)=> {
 
 
@@ -27,7 +28,10 @@ const App=(props)=> {
   return (
     <BrowserRouter>
       <Fragment>
-        <Nav />
+        <body >
+          <div className='wrapper'>
+            <div className='main'>
+            <Nav />
         <Route exact path="/" component={Home} />
         <Switch>
           <Route path="/about" component={About} />
@@ -41,8 +45,13 @@ const App=(props)=> {
           <Route path='/dashboard/:data' component={Table} />
           <Route path='/orderconfirmation' component={Orderconfirmation}/>
           <Route path='/ordershowpage' component={Order}/>
-        </Switch>
+        </Switch>  
+            </div>
+  
+          </div>
         <Footer/>
+        </body>
+
       </Fragment>
     </BrowserRouter>
   );
