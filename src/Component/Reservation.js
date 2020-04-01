@@ -75,7 +75,7 @@ class Reservation extends Component {
                     })
                     setTimeout(() => {
                         this.props.history.push('/')
-                    }, 5000);
+                    }, 10000);
                 }, 7000);
                 
             })
