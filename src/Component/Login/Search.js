@@ -20,7 +20,7 @@ const Update = (props) => {
     let roomBed = useRef();
     let roomCap = useRef();
 
-    const url = 'http://localhost:9000/api/restricted/'
+    const url = '/api/restricted/'
     const auth = useRef(false);
 
     const handleBedType = (e) => {

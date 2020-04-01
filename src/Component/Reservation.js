@@ -61,7 +61,7 @@ class Reservation extends Component {
             totalPrice:this.gettingTotalPrice(this.props.people)
         }
         console.log(obj)
-        axios.post(`http://localhost:9000/Reservation`, obj)
+        axios.post(`/Reservation`, obj)
             .then(resp => { console.log(resp.data) })
     }
 

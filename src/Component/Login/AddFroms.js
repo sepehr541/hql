@@ -154,7 +154,7 @@ const sendReq = async (dest, data) => {
         'Authorization': `Bearer ${localStorage.getItem('token')}`
     }
     try {
-        await axios.post(`http://localhost:9000/api/restricted/${dest}`, data, {
+        await axios.post(`/api/restricted/${dest}`, data, {
             headers: headers
         })
         alert('Success :)');

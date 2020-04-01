@@ -65,7 +65,7 @@ export const logOut=()=>{
 
 export const LogginIn= (username,password)=>{
     return dispatch=>{
-        Axios.post('http://localhost:9000/api/login' ,{username ,password})
+        Axios.post('/api/login' ,{username ,password})
         .then(resp=>{
             localStorage.setItem('username',username)
             dispatch(authSuccess(resp.data ,username))

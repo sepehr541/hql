@@ -54,5 +54,5 @@
     "typescript": "^3.7.5",
     "video.js": "^7.6.6"
   },
-  "proxy":"http//:localhost9000"
+  "proxy" : "http://localhost:9000"
 }

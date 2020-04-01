@@ -19,7 +19,7 @@ const Table = (props) => {
     const auth = useRef(true)
 
     // api endpoint
-    let url = `http://localhost:9000/api/restricted/${props.match.params.data}`
+    let url = `/api/restricted/${props.match.params.data}`
 
     // get data in each render
     useEffect(() => {

@@ -8,7 +8,6 @@ import './Maint.css'
 
 const Maint = (props) => {
 
-    const url = 'http://localhost:9000/'
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const auth = useRef(true);
@@ -18,7 +17,7 @@ const Maint = (props) => {
         const getData = async () => {
             try {
                 let token = localStorage.getItem('token')
-                const resp = await axios.get(url + 'api/restricted/essentials', {
+                const resp = await axios.get('/api/restricted/essentials', {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
