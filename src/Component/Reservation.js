@@ -73,15 +73,15 @@ class Reservation extends Component {
                     this.setState({
                         orderconf:resp.data.answers
                     })
-                    setTimeout(() => {
-                        this.props.history.push('/')
-                    }, 10000);
+                   
                 }, 7000);
                 
             })
           
     
 }
+
+
    
 
     openModal = () => {
@@ -104,11 +104,11 @@ class Reservation extends Component {
         console.log(this.state.orderconf)
         if(this.state.orderconf){
             text=(
-            <Modal show={this.state.Modal}>{this.state.orderconf}</Modal>
+            <Modal close={this.closeModal} show={this.state.Modal}>{this.state.orderconf}</Modal>
                 )
         }else{
             text=(
-                <Modal show={this.state.Modal} >Your reservation is being confirmed once its confirmed you will see your order confirmation id</Modal>
+                <Modal close={this.closeModal} show={this.state.Modal} >Your reservation is being confirmed once its confirmed you will see your order confirmation id</Modal>
             )
         }
        
