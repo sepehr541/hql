@@ -83,6 +83,7 @@ const Update = (props) => {
     }
 
     const handleChange = (e) => {
+        console.log(e.target);
         category.current = e.target.value;
         switch (e.target.value) {
             case "Employee":

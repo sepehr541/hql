@@ -1,37 +1,14 @@
 .footer{
     background-color: black;
-    position: absolute;
-    top: 155%;
+    position: relative;
     width: 100%;
-    height: 75%;
+    height: auto;
 }
 
-.logo{
-    position: absolute;
-    left: 763px;
-    top: 20px;
+#footerRow {
+    margin-bottom: 0 !important;
 }
 
-.social{
-    position: absolute;
-    color: white;
-    top: 100px;
-    font-size: x-large;
-    left: 50px;
-    font-family:'Franklin Gothic Medium';
-}
-.amirInsta{
-    position: absolute;
-    color: white;
-    top: 200px;
-    left:50px;
-    font-size: small;
-}
-.contact{
-    position: absolute;
-    font-family: 'Franklin Gothic Medium';
-    font-size: x-large;
-    color:white;
-    top: 130px;
-    left: 300px;
+.content {
+    position: relative;
 }

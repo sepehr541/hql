@@ -26,7 +26,7 @@ const Room = (props) => {
                     <div className="title">Bed Option</div>
                     <div className="bed">{props.bedtype} </div>
                 </Fragment>
-                <button onClick={onClickhandler} className="checkout">Checkout</button>
+                <button onClick={onClickhandler} className="checkout btn">Checkout</button>
             </div>
         </Fragment>
 
