@@ -7,6 +7,9 @@ import Spinner from './Spinner/Spinner'
 
 
 const orderconf= (props)=>{
+
+    console.log(props.end)
+    console.log(props.start)
     let table=(
         <Fragment>    
          <Spinner/>

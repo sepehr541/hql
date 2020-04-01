@@ -18,7 +18,10 @@ var gettingOrderConf=(e)=>{
 var sendingToBack=async()=>{
     console.log(orderconf)
     const resp= await Axios.post('/api/orderconf',{orderNum:orderconf})
-    const results=await resp.data    
+    const results=await resp.data[0]    
+    console.log(results)
+    console.log(results.visitorname)
+    console.log(results.startdate)
     props.sendingOrder(results.visitorname, results.phone , results.email , results.startdate , results.enddate, results.price,results.reservationid)
     props.history.push(`/orderconfirmation/${orderconf}`)
 
