@@ -9,8 +9,6 @@ import Spinner from "./Spinner/Spinner"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import axios from "axios"
-
-
 // let arr = [{ price: 543, bedtype: "2 bed" }, { price: 345, bedtype: "1 bed" }, { price: 649, bedtype: "3 bed" }, { price: 450, bedtype: "2 bed" }]
 
 const Rooms = (props) => {
