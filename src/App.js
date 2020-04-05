@@ -17,6 +17,7 @@ import Footer from './Component/footer'
 import { connect } from 'react-redux'
 import { keeplogIn } from '../src/Actions/action'
 import Order from '../src/Component/OrderconfShowPage'
+import Projection from './Component/Login/Projection'
 
 import './App.css'
 const App = (props) => {
@@ -40,6 +41,7 @@ const App = (props) => {
             <Route exact path='/dashboard/search' component={Search} />
             <Route exact path='/dashboard/stats' component={Stats} />
             <Route exact path='/dashboard/maint' component={Maint} />
+            <Route exact path='/dashboard/proj' component={Projection} />
             <Route path='/dashboard/:data' component={Table} />
             <Route path='/orderconfirmation' component={Orderconfirmation} />
             <Route path='/ordershowpage' component={Order} />
