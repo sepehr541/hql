@@ -24,7 +24,6 @@ const Maint = (props) => {
                 });
                 auth.current = true
                 setData(resp.data);
-                console.log(resp.data);
             } catch (error) {
                 if (error.response.status) {
                     auth.current = false;

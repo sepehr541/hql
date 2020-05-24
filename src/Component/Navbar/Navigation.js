@@ -28,8 +28,6 @@ const Nav = (props) => {
     
     let dropdown=null
 
-    console.log(props.token)
-
     if(props.token){
         dropdown=(
             <div className="dropdown">

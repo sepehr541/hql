@@ -4,7 +4,7 @@ import BackButton from './BackButton';
 import LoadingBar from './LoadingBar';
 import Unauthorized from './Unauthorized';
 import { useHistory } from 'react-router-dom';
-import './Table.css'
+import './Table.css';
 import axios from 'axios'
 const Table = (props) => {
     const history = useHistory();
@@ -24,7 +24,6 @@ const Table = (props) => {
     // get data in each render
     useEffect(() => {
         const token = localStorage.getItem('token');
-        console.log(token);
         const getRows = async () => {
             setDeleted(false);
             try {
